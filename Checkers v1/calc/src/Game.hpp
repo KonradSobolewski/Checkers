@@ -3,6 +3,9 @@
 #define GAME_HPP
 #include "Move.hpp"
 #include "Player.hpp" 
+#include "AI.hpp"
+#include "Piece.hpp"
+#include "State.hpp"
 #include "Declarations.hpp"
 
 

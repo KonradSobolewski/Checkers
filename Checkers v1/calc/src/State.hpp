@@ -2,14 +2,16 @@
 #ifndef STATE_HPP
 #define STATE_HPP
 #include "Declarations.hpp"
-
+#include "Move.hpp"
 class State
 {
 	private:
-		typedef std::vector<std::vector<bool>> gameBoard;
+		Board board;
 	public:
-		State();
-		~State();
+		State() { board.push_back(std::vector<bool>()); board[0].push_back(false); };
+		~State() {};
+		int getBoardSize() { return 0; };
+		std::vector<std::vector<bool>> getPossibleMoves(std::shared_ptr<Move> move) { return board; }
 };
 
 

@@ -20,7 +20,9 @@ class Player
 		bool isWinner() { return isWinner_; }
 		void setActive(bool state) { isActive_ = state; }
 		void setWinner(bool state) { isWinner_ = state; }
+                void addPiece(std::shared_ptr<Piece> piece) { pieces_.push_back(piece); }
 		pieces getPieces() { return pieces_; }
+		int getPiecesNumber() { return pieces_.size(); } //todo 
 		void createPieces(){};
 };
 

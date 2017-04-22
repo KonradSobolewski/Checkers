@@ -19,6 +19,7 @@ class Piece
 		int getY() const { return y_; } 
 		Color getColor() const { return color_; }
 		bool getWhoseMove() const { return isHumanPiece_; }
+                bool isUpgraded() const { return isUpgraded_; }
 		void setPosition(int x, int y) { x_= x; y_ = y; }
 		void setWhosePiece( bool isHumanPiece ) { isHumanPiece_ = isHumanPiece; }
 		void upgrade() { isUpgraded_ = true; }

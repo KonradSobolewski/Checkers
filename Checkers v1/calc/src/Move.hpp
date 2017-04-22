@@ -9,9 +9,9 @@ class Move
 		int x_;
 		int y_;
 		bool humanMove_; 
-		Piece piece_;
+		std::shared_ptr<Piece> piece_;
 	public:
-		Move(int x, int y, bool humanMove,const Piece& piece): x_(x), y_(y), humanMove_(humanMove) , piece_(piece) {};	
+		Move(int x, int y, bool humanMove, std::shared_ptr<Piece> piece): x_(x), y_(y), humanMove_(humanMove) , piece_(piece) {};	
 		~Move(){};
 		int getX() const { return x_; };
 		int getY() const { return y_; };
