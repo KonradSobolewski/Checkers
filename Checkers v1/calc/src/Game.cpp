@@ -23,13 +23,13 @@ bool Game::isHumanTurn() const
 
 } 
 
-bool Game::checkMove() const
+bool Game::checkMove(std::shared_ptr<Move> move)const
 {
 	return true;
 
 }
 
-bool Game::checkVictory(const Player& player) const
+bool Game::checkVictory() const
 {
 	return true;
 
