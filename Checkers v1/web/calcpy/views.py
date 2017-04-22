@@ -3,18 +3,16 @@
 
 """
 calc library interface to client
+
 export calculation results to client
 """
-from Game import Game
+from calc import Game
 
 def getNumber(params):
-    a=Game()
-    print (a.getX())
+    """the calculation from C++ library"""
+    a= Game()
     return {
         "number" : a.getX()
     }
 
 
-
-
-	
