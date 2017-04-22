@@ -11,6 +11,7 @@ from calc import Game
 def getNumber(params):
     """the calculation from C++ library"""
     a= Game()
+    print(a.getX())
     return {
         "number" : a.getX()
     }
