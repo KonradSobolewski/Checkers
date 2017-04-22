@@ -23,7 +23,6 @@ class AI
 		//pieces getPieces();
 		void createPieces();
 		void makeMove();  
-		int getPiecesNumber() { return pieces_.size(); } 
 };
 
 
