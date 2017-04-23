@@ -6,11 +6,10 @@
 #include <cstdlib>
 #include <vector>
 
-
 enum Color {BLACK, WHITE};
 
 const static int BOARD_SIZE = 8;
 
 typedef std::vector<std::vector<bool>> Board;
 
-#endif //DECLARATIONS_HPP
+#endif DECLARATIONS_HPP

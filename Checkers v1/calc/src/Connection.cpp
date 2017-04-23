@@ -17,11 +17,6 @@ using namespace boost::python;
 BOOST_PYTHON_MODULE( calc )
 {
 
-    boost::python::enum_<Color>("Color")
-	.value( "BlACK", BLACK )
-	.value( "WHITE", WHITE )
-	;
-
     class_<Game,std::shared_ptr<Game>>("Game")
         .def( "getX", &Game::getX)
         ;

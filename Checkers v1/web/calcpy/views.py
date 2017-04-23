@@ -6,26 +6,14 @@ calc library interface to client
 
 export calculation results to client
 """
-from calc import Game,Color
-
-
-class GameList:
-	games = {}
+from calc import Game
 
 def getNumber(params):
-	a= Game()	
-	print(a.getX())
-	print(params)
-	return {
-		"number" : a.getX()
-	}
+    """the calculation from C++ library"""
+    a= Game()
+    print(a.getX())
+    return {
+        "number" : a.getX()
+    }
 
-def userMove(params):
-	x=int(params["x"])
-	y=int(params["y"])
 
-	
-
-def loginUser():
-	#login User in database
-	return True	

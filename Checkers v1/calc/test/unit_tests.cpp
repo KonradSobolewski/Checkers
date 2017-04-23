@@ -7,9 +7,6 @@
 #include <boost/test/included/unit_test.hpp>
 #include <iostream>
 #include "../src/Game.hpp"
-#include "../src/Player.cpp"
-#include "../src/State.cpp"
-
 
 using namespace boost::unit_test;
 

@@ -19,7 +19,10 @@ angular.module('myAppControllers', [])
 					 	 function(data) {
 					 		 $scope.server_ver = data;
 					 	 });
-					 srvInfo.getCppNumber(5);
+					 srvInfo.getCppNumber(
+						 function(data) {
+							 $scope.cpp_get = data;
+						 });
 					 $scope.client_ver = client_ver_major.toString() + '.' + client_ver_minor.toString() + '.' + client_ver_compilation.toString(); //from version.js file
 				 }])
 	.controller('commandController', //cpp commands
