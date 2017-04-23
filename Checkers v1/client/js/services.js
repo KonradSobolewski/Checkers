@@ -12,8 +12,8 @@ angular.module('myAppServices', [])
                  this.getCurrent = function(callback) {
                      return $http.get(this.baseURL + 'current/get').success(callback);
                  };
-                 this.getCppNumber = function(callback) {
-                     return $http.get(this.baseURL + 'calcpy/getNumber').success(callback);
+                 this.getCppNumber = function(tank) {
+                     return $http.get(this.baseURL + 'calcpy/getNumber', { params: { 'name': tank } });
                  };
 			 })
 	.service('srvCommands', //commands

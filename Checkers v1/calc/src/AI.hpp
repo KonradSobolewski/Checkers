@@ -9,8 +9,8 @@ class AI
 	private:
 		Color color_;
 		bool isActive_;
-		bool isWinner_;		
-		typedef std::vector<std::shared_ptr<Piece>> pieces;
+		bool isWinner_;
+		typedef std::vector<std::shared_ptr<Piece>> pieces;		
 		pieces pieces_;
 	public:
 		AI(bool isActive, Color color);
@@ -20,7 +20,7 @@ class AI
 		bool isWinner();
 		void setActive(bool state);
 		void setWinner(bool state);
-		//pieces getPieces();
+		pieces getPieces();
 		void createPieces();
 		void makeMove();  
 };
