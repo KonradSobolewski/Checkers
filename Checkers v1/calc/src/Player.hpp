@@ -14,16 +14,17 @@ class Player
 		pieces pieces_;	
 	public:
 		Player(bool isActive, Color color);
-		~Player(){};
+		~Player();
 		Color getColor();
 		bool isActive();
 		bool isWinner();
 		void setActive(bool state);
 		void setWinner(bool state);
                 void addPiece(std::shared_ptr<Piece> piece);
-		pieces getPieces() { return pieces_; }
+		pieces getPieces();
 		int getPiecesNumber();
 		void createPieces();
+		virtual void update();
 };
 
 

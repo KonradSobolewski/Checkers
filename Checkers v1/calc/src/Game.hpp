@@ -12,7 +12,8 @@
 class Game
 {
 	private:
-		int x =5; 
+		int x = 5;
+		std::vector<std::shared_ptr<Player>> players;
 	public:
 		Game();
 		~Game();
@@ -20,7 +21,8 @@ class Game
 		bool isHumanTurn() const; //sprawdza czyj ruch
 		bool checkMove() const; // sprawdza możliwość wykonania ruchu
 		void executeMove(std::shared_ptr<Move> move, std::shared_ptr<Player> player) const; // wykonuje ruch
-		bool checkVictory(const Player& player) const; //sprawdza wygraną 	
+		bool checkVictory(const Player& player) const; //sprawdza wygraną 
+		void notify(); // wzorzec obserwatora	
 };
 
 

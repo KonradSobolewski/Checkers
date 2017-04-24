@@ -39,3 +39,9 @@ void Game::executeMove(std::shared_ptr<Move> move, std::shared_ptr<Player> playe
 {
 
 }
+
+void Game::notify()
+{
+	for(auto p: players)
+		p->update();
+}
