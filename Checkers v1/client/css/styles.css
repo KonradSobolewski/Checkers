@@ -1,37 +1,37 @@
-/**
- * \file styles.css
- * \brief application styles
- */
-
-.hidden {
-    display: none;
+.whitePiece
+{
+    width:100px;
+    height:100px;
+    text-align: center;
+    border: solid #000000;
+    border-width: 1px;
+    border-radius: 5%;
+    float:left;
+    background-color: #EEEFFE;
 }
 
-.error {
-    font-size: 2em;
-    color:red;
+.whitePiece:hover
+{
+    background-color: #FF7F7F; 
+    cursor: pointer;
+} 	
+
+.blackPiece
+{
+    width:100px;
+    height:100px;
+    text-align: center;
+    border: solid #000000;
+    border-width: 1px;
+    border-radius: 5%;
+    float:left;
+    background-color: #4f4f4f;
 }
 
-.info {
-    font-size: 2em;
-    color:green;
-}
+.blackPiece:hover
+{
+    background-color: #FF7F7F; 
+    cursor: pointer;
+} 	
 
-body {
-    margin: 0px;
-    padding: 0px;
-    font-family: 'Noto Sans', sans-serif;
-	font-size: 100.01%;
-}
-
-#icons_ul {
-	list-style-type:none;
-	margin:0;
-	padding:0;
-}
-
-#icons_ul > li {
-	float:left;
-    padding: 5px;
-}
 

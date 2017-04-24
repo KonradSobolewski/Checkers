@@ -12,13 +12,22 @@ from calc import Game,Color
 class GameList:
 	games = {}
 
-def getNumber(params):
-	a= Game()	
-	print(a.getX())
-	print(params)
+
+def printID(params):
+	id = params['ID']
+	print('Div id is: ' + id)
 	return {
-		"number" : a.getX()
+		"number" : params['ID']
 	}
+
+def cppCom(params):
+	print('Cpp communication...')
+	game = Game()
+	print(game.getX())	
+	return {
+		"number" : game.getX()
+	}
+
 
 def userMove(params):
 	x=int(params["x"])

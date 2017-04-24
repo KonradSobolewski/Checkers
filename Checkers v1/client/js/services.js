@@ -12,9 +12,18 @@ angular.module('myAppServices', [])
                  this.getCurrent = function(callback) {
                      return $http.get(this.baseURL + 'current/get').success(callback);
                  };
-                 this.getCppNumber = function(tank) {
-                     return $http.get(this.baseURL + 'calcpy/getNumber', { params: { 'name': tank } });
+                 this.getCppNumber = function(callback) {
+                     return $http.get(this.baseURL + 'calcpy/getNumber').success(callback);
                  };
+
+		 this.sendID = function(callback, id) {
+                     return $http.get(this.baseURL + 'calcpy/printID', { params: { 'ID': id } }).success(callback);
+                 };
+		 
+		 this.communicateCpp = function(callback) {
+                     return $http.get(this.baseURL + 'calcpy/cppCom').success(callback);
+                 };
+	
 			 })
 	.service('srvCommands', //commands
 			 function($http) {
