@@ -2,23 +2,23 @@
 	<h1>First version of checkers</h1>
 	<table id="gametable">
 		<tr ng-repeat="y in row" >
-			<td ng-if="y%2==0" id ="{{y}}{{column[0]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2==0" id ="{{y}}{{column[0]}}" class="whitePiece" ></td>
 			<td ng-if="y%2==0" id ="{{y}}{{column[1]}}" class="blackPiece" data-ng-click="check($event)"></td>
-			<td ng-if="y%2==0" id ="{{y}}{{column[2]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2==0" id ="{{y}}{{column[2]}}" class="whitePiece" ></td>
 			<td ng-if="y%2==0" id ="{{y}}{{column[3]}}" class="blackPiece" data-ng-click="check($event)"></td>
-			<td ng-if="y%2==0" id ="{{y}}{{column[4]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2==0" id ="{{y}}{{column[4]}}" class="whitePiece" ></td>
 			<td ng-if="y%2==0" id ="{{y}}{{column[5]}}" class="blackPiece" data-ng-click="check($event)"></td>
-			<td ng-if="y%2==0" id ="{{y}}{{column[6]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2==0" id ="{{y}}{{column[6]}}" class="whitePiece" ></td>
 			<td ng-if="y%2==0" id ="{{y}}{{column[7]}}" class="blackPiece" data-ng-click="check($event)"></td>
 	
 			<td ng-if="y%2!=0" id ="{{y}}{{column[0]}}" class="blackPiece" data-ng-click="check($event)"></td>
-			<td ng-if="y%2!=0" id ="{{y}}{{column[1]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2!=0" id ="{{y}}{{column[1]}}" class="whitePiece" ></td>
 			<td ng-if="y%2!=0" id ="{{y}}{{column[2]}}" class="blackPiece" data-ng-click="check($event)"></td>
-			<td ng-if="y%2!=0" id ="{{y}}{{column[3]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2!=0" id ="{{y}}{{column[3]}}" class="whitePiece" ></td>
 			<td ng-if="y%2!=0" id ="{{y}}{{column[4]}}" class="blackPiece" data-ng-click="check($event)"></td>
-			<td ng-if="y%2!=0" id ="{{y}}{{column[5]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2!=0" id ="{{y}}{{column[5]}}" class="whitePiece" ></td>
 			<td ng-if="y%2!=0" id ="{{y}}{{column[6]}}" class="blackPiece" data-ng-click="check($event)"></td>
-			<td ng-if="y%2!=0" id ="{{y}}{{column[7]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2!=0" id ="{{y}}{{column[7]}}" class="whitePiece" ></td>
 		</tr>
 	</table>
 	<div class="whitePiece" id="piece1" data-ng-click="check($event)" >{{ counter.number }}</div>

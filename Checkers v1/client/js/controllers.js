@@ -9,7 +9,8 @@ angular.module('myAppControllers', [])
 			$scope.row = [1,2,3,4,5,6,7,8];	
 			$scope.column = [1,2,3,4,5,6,7,8];
 			$scope.numberFromCpp = 0;
-
+			$scope.classes =['blackPiece','redPiece'];
+			
 		
 			$scope.activeCpp = function(){
 				srvInfo.communicateCpp(
@@ -22,6 +23,7 @@ angular.module('myAppControllers', [])
 					function(data){
 						$scope.counter = data;
 					}, event.target.id);
+				
 			}
 		 }]);
 

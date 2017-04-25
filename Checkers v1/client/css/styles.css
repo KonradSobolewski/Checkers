@@ -7,23 +7,6 @@ body
     font-weight:700;
 }
 
-.piece
-{
-    width:70px;
-    height:70px;
-    text-align: center;s
-    border: solid #000000;
-    border-width: 1px;
-    border-radius: 5%;
-    float:left;
-}
-
-.piece:hover
-{
-    background-color: #FF7F7F; 
-    cursor: pointer;
-} 
-
 
 
 .whitePiece
@@ -36,9 +19,7 @@ body
     border-radius: 5%;
     float:left;
     background-color: #EEEFFE;
-}
-
-	
+}	
 
 .blackPiece
 {
@@ -61,6 +42,6 @@ body
 {
     background-color: #FF7F7F; 
     cursor: pointer;
-} 	
+} 
 
 
