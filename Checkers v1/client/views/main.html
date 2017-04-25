@@ -1,11 +1,29 @@
-<!--
-	@file about.html
-    @brief the AngularJS partial 'about'
--->
-<h1>Test</h1>
-<div ng-controller="settingsController" >
+<div align="center" ng-controller="settingsController" >
+	<h1>First version of checkers</h1>
+	<table id="gametable">
+		<tr ng-repeat="y in row" >
+			<td ng-if="y%2==0" id ="{{y}}{{column[0]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2==0" id ="{{y}}{{column[1]}}" class="blackPiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2==0" id ="{{y}}{{column[2]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2==0" id ="{{y}}{{column[3]}}" class="blackPiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2==0" id ="{{y}}{{column[4]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2==0" id ="{{y}}{{column[5]}}" class="blackPiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2==0" id ="{{y}}{{column[6]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2==0" id ="{{y}}{{column[7]}}" class="blackPiece" data-ng-click="check($event)"></td>
+	
+			<td ng-if="y%2!=0" id ="{{y}}{{column[0]}}" class="blackPiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2!=0" id ="{{y}}{{column[1]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2!=0" id ="{{y}}{{column[2]}}" class="blackPiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2!=0" id ="{{y}}{{column[3]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2!=0" id ="{{y}}{{column[4]}}" class="blackPiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2!=0" id ="{{y}}{{column[5]}}" class="whitePiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2!=0" id ="{{y}}{{column[6]}}" class="blackPiece" data-ng-click="check($event)"></td>
+			<td ng-if="y%2!=0" id ="{{y}}{{column[7]}}" class="whitePiece" data-ng-click="check($event)"></td>
+		</tr>
+	</table>
 	<div class="whitePiece" id="piece1" data-ng-click="check($event)" >{{ counter.number }}</div>
 	<div class="blackPiece" id="piece2" data-ng-click="check($event)" >{{ counter.number }}</div>
 	<button data-ng-click="activeCpp()" id="Cpp_Command"> Communicate with c++ </button>
-	<p>Number sent by cpp {{ numberFromCpp }}</p>
+	<p>Number send by cpp {{ numberFromCpp }}</p>
 </div>
+

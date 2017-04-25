@@ -1,8 +1,17 @@
+body
+{
+    background-color:#2f2f2f;
+    color:lightgray;
+    font-size:20px;
+    font-family: 'Inconsolata', monospace;
+    font-weight:700;
+}
+
 .whitePiece
 {
-    width:100px;
-    height:100px;
-    text-align: center;
+    width:70px;
+    height:70px;
+    text-align: center;s
     border: solid #000000;
     border-width: 1px;
     border-radius: 5%;
@@ -18,8 +27,8 @@
 
 .blackPiece
 {
-    width:100px;
-    height:100px;
+    width:70px;
+    height:70px;
     text-align: center;
     border: solid #000000;
     border-width: 1px;

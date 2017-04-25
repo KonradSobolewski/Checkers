@@ -2,9 +2,14 @@
 /// @brief AngularJS controllers
 
 
+
+
 angular.module('myAppControllers', [])
 		.controller('settingsController',['$scope', 'srvInfo', function($scope, srvInfo) {
-			$scope.numberFromCpp = 0;			
+			$scope.row = [1,2,3,4,5,6,7,8];	
+			$scope.column = [1,2,3,4,5,6,7,8];
+			$scope.numberFromCpp = 0;
+		
 			$scope.activeCpp = function(){
 				srvInfo.communicateCpp(
 					function(data){	
@@ -20,14 +25,4 @@ angular.module('myAppControllers', [])
 		 }]);
 
 
-/*angular.module('myAppControllers', [])
-		.controller('settingsController',['$scope', 'srvInfo', function($scope, srvInfo) {
-		 	$scope.check = function() {
-				srvInfo.getCppNumber(
-				function(data){
-					$scope.counter = data;
-				});
-			};
-		 }]);
-*/
 
