@@ -7,6 +7,25 @@ body
     font-weight:700;
 }
 
+.piece
+{
+    width:70px;
+    height:70px;
+    text-align: center;s
+    border: solid #000000;
+    border-width: 1px;
+    border-radius: 5%;
+    float:left;
+}
+
+.piece:hover
+{
+    background-color: #FF7F7F; 
+    cursor: pointer;
+} 
+
+
+
 .whitePiece
 {
     width:70px;
@@ -19,11 +38,7 @@ body
     background-color: #EEEFFE;
 }
 
-.whitePiece:hover
-{
-    background-color: #FF7F7F; 
-    cursor: pointer;
-} 	
+	
 
 .blackPiece
 {
@@ -38,6 +53,11 @@ body
 }
 
 .blackPiece:hover
+{
+    background-color: #5c5c5c; 
+    cursor: pointer;
+} 
+.blackPiece:active
 {
     background-color: #FF7F7F; 
     cursor: pointer;

@@ -9,6 +9,7 @@ angular.module('myAppControllers', [])
 			$scope.row = [1,2,3,4,5,6,7,8];	
 			$scope.column = [1,2,3,4,5,6,7,8];
 			$scope.numberFromCpp = 0;
+
 		
 			$scope.activeCpp = function(){
 				srvInfo.communicateCpp(
