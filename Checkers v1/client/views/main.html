@@ -1,5 +1,5 @@
 <div align="center" ng-controller="settingsController" >
-	<h1>First version of checkers</h1>
+	<h1>Checkers game</h1>
 	<table id="gametable">
 		<tr ng-repeat="y in row" >
 			<td ng-if="y%2==0" id ="{{y}}{{column[0]}}" class="whitePiece" ></td>
@@ -21,9 +21,17 @@
 			<td ng-if="y%2!=0" id ="{{y}}{{column[7]}}" class="whitePiece" ></td>
 		</tr>
 	</table>
-	<div class="whitePiece" id="piece1" data-ng-click="check($event)" >{{ counter.number }}</div>
-	<div class="blackPiece" id="piece2" data-ng-click="check($event)" >{{ counter.number }}</div>
-	<button data-ng-click="activeCpp()" id="Cpp_Command"> Communicate with c++ </button>
-	<p>Number send by cpp {{ numberFromCpp }}</p>
+	<div align="center">
+		<p> ID's of clicked fields </p>
+		<table>
+			<tr>
+				<td class="whitePiece" id="piece1" data-ng-click="check($event)" >{{ counter.number }}</td>
+				<td class="blackPiece" id="piece2" data-ng-click="check($event)" >{{ counter.number }}</td>
+			</tr>		
+		</table>		
+		</br>
+		<button class="CppButton" data-ng-click="activeCpp()" id="Cpp_Command"> COMMUNICATE WITH C++ </button>
+		<p>Number send by cpp {{ numberFromCpp }}</p>
+	</div>
 </div>
 
