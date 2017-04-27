@@ -3,7 +3,9 @@ body
 	margin: 0 auto;
 	background-image: url("../img/bg.jpg");
 	background-repeat: no-repeat center center fixed;
-	background-size: 100%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: norepeat;
 }
 
 .container
@@ -57,12 +59,9 @@ input
 }
 
 footer
+
 {
 	margin: 0;
-}
-
-footer p
-{
 	float: right;
 	margin-right: 20px;
 	margin-top: 300px;
@@ -70,12 +69,12 @@ footer p
 	font-family: sans-serif;
 }
 
-.footer-text
+#footer-text
 {
 	color: white;
 }
 
-.footer-text:hover
+#footer-text:hover
 {
 	color: antiquewhite;
 }
