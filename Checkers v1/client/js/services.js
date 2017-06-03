@@ -16,8 +16,8 @@ angular.module('myAppServices', [])
                      return $http.get(this.baseURL + 'calcpy/getNumber').success(callback);
                  };
 
-		 this.sendID = function(callback, id) {
-                     return $http.get(this.baseURL + 'calcpy/printID', { params: { 'ID': id } }).success(callback);
+		 this.sendID = function(callback, idSource,idDest) {
+                     return $http.get(this.baseURL + 'calcpy/printID', { params: { 'IDsource': idSource , 'IDdestination' : idDest} }).success(callback);
                  };
 		 
 		 this.communicateCpp = function(callback) {
