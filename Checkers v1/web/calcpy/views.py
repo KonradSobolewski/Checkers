@@ -14,10 +14,13 @@ class GameList:
 
 
 def printID(params):
-	id = params['ID']
-	print('Div id is: ' + id)
+	print("lol")
+	idSource = params['IDsource']
+	idDest = params['IDdestination']
+	
+	print('send move: ' + idSource + " to " + idDest)
 	return {
-		"number" : params['ID']
+		"number" : params['IDsource']
 	}
 
 def cppCom(params):
