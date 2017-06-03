@@ -24,7 +24,17 @@ h1
     border-radius: 5%;
     float:left;
     background-color: #EEEFFE;
+
 }	
+
+.piece 
+{
+    width:64px;
+    height:64px;
+
+
+}
+
 
 .blackPiece
 {
