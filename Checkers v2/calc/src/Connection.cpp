@@ -8,6 +8,13 @@
 #include <boost/python/suite/indexing/vector_indexing_suite.hpp>
 
 #include "Game.hpp"
+#include "Move.hpp"
+#include "Player.hpp"
+#include "AI.hpp"
+#include "Piece.hpp"
+#include "State.hpp"
+#include "Declarations.hpp"
+#include "Human.hpp"
 
 using namespace boost::python;
 

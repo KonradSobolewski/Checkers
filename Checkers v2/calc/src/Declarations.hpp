@@ -10,10 +10,10 @@
 
 const static int BOARD_SIZE = 8;
 
-typedef std::vector<std::vector<bool>> Board;
-
 enum Color {BLACK, WHITE};
 
 enum class Element {WHITE_BLANK, BLACK_BLANK, WHITE_PIECE, BLACK_PIECE};
+
+typedef std::vector<std::vector<Element>> Board;
 
 #endif //DECLARATIONS_HPP

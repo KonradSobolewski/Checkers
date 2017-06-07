@@ -6,23 +6,23 @@
 
 class Piece
 {
-	private:
-		int x_;
-		int y_;
-		Color color_;
-		bool isHumanPiece_;
-		bool isUpgraded_;
-	public:
-		Piece(int x, int y, Color color, bool isHumanPiece, bool isUpgraded): x_(x), y_(y), color_(color), isHumanPiece_(isHumanPiece), isUpgraded_(false) {};
-		~Piece(){};
-		int getX() const { return x_; }
-		int getY() const { return y_; } 
-		Color getColor() const { return color_; }
-		bool getWhoseMove() const { return isHumanPiece_; }
-                bool isUpgraded() const { return isUpgraded_; }
-		void setPosition(int x, int y) { x_= x; y_ = y; }
-		void setWhosePiece( bool isHumanPiece ) { isHumanPiece_ = isHumanPiece; }
-		void upgrade() { isUpgraded_ = true; }
+private:
+    int id_;
+    int position_;
+    Element color_;
+    bool isHumanPiece_;
+    bool isUpgraded_;
+public:
+    Piece(int position, int id, Element color, bool isHumanPiece, bool isUpgraded);
+    ~Piece(){};
+    int getID();
+    int getPosition() const ;
+    Element getColor() const ;
+    bool getWhoseMove() const ;
+    bool isUpgraded() const ;
+    void setPosition(int pos) ;
+    void setWhosePiece( bool isHumanPiece ) ;
+    void upgrade() ;
 };
 
 

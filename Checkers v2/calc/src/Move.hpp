@@ -1,24 +1,26 @@
 
 #ifndef MOVE_HPP
-#define MOVE_HPP 
+#define MOVE_HPP
 #include "Piece.hpp"
 
 class Move
 {
-	private:
-		int x_;
-		int y_;
-		bool humanMove_; 
-		std::shared_ptr<Piece> piece_;
-	public:
-		Move(int x, int y, bool humanMove, std::shared_ptr<Piece> piece): x_(x), y_(y), humanMove_(humanMove) , piece_(piece) {};	
-		~Move(){};
-		int getX() const { return x_; };
-		int getY() const { return y_; };
-		bool isHumanMove() const { return humanMove_ == true; };
-		void setX(int x) { x_ = x; }; 
-		void setY(int y) { y_ = y; } ;
-		void setWhoseMove(bool isHumanMove) { humanMove_ = isHumanMove; } ;
+private:
+    int pos_;
+    bool humanMove_;
+    bool isHit_;
+    int hitPosition_;
+    std::shared_ptr<Piece> piece_;
+public:
+    Move(int pos, bool humanMove, std::shared_ptr<Piece> piece, bool isHit, int hitPosition);
+    ~Move(){};
+    int getPos() const ;
+    std::shared_ptr<Piece> getPiece() ;
+    bool isHumanMove() const ;
+    void setPos(int pos) ;
+    void setWhoseMove(bool isHumanMove);
+    bool isHit() ;
+    int getHitPos() ;
 };
 
 #endif //GAME_HPP

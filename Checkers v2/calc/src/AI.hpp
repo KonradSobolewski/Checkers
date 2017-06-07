@@ -5,12 +5,12 @@
 
 class AI: public Player
 {
-	private:
-	public:
-		AI(bool isActive, Color color);
-		~AI();
-		void update();
-		int* makeMove(); 
+private:
+public:
+    AI(bool isActive, Color color);
+    ~AI();
+    void update();
+    int* makeMove();
 };
 
 

@@ -5,13 +5,13 @@
 
 class Human: public Player
 {
-	private:
-		
-	public:
-		Human(bool isActive, Color color);
-		~Human();
-		void update();
-		
+private:
+
+public:
+    Human(bool isActive, Color color);
+    ~Human();
+    void update();
+
 };
 
 
