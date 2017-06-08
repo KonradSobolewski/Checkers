@@ -12,7 +12,11 @@ Game::Game()
 
 Game::~Game()
 {
-
+    state_ = std::make_shared<State>();
+    ai_ = std::make_shared<AI>(false, BLACK);
+    ai_->createPieces();
+    human_ = std::make_shared<Human>(true, WHITE);
+    human_->createPieces();
 }
 
 
@@ -73,4 +77,20 @@ void Game::notify()
 {
     //for(auto p: players_)
     //    p->update();
+}
+
+
+std::shared_ptr<AI> Game::getAI()
+{
+	return ai_;
+}
+
+std::shared_ptr<Human> Game::getHuman()
+{
+	return human_;
+}
+
+std::shared_ptr<State> Game::getState()
+{
+	return state_;
 }

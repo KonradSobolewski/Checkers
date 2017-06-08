@@ -138,4 +138,16 @@ BOOST_AUTO_TEST_CASE( possibleMovesTest )
     BOOST_CHECK_EQUAL_COLLECTIONS(statePossibleMoves.begin(), statePossibleMoves.end(), possibleMoves5.begin(), possibleMoves5.end());
 
 }
+
+BOOST_AUTO_TEST_CASE( checkMovesTest )
+{
+    
+    auto game = std::make_shared<Game>();
+    auto humanik = game->getHuman();
+    humanik->update();
+    //auto piece = game->getHuman()->getPieceById(9);
+    //auto move = std::make_shared<Move>(25, true, piece, false, 0);   
+// BOOST_CHECK_EQUAL(game->checkMove(move), false);
+}
+
 BOOST_AUTO_TEST_SUITE_END()

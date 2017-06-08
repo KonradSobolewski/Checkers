@@ -26,6 +26,9 @@ class Game
 	    void executeMove(std::shared_ptr<Move> move, std::shared_ptr<Player> player) ; // wykonuje ruch
 	    bool checkVictory(const Player& player) const; //sprawdza wygraną
 	    void notify(); // wzorzec obserwatora
+            std::shared_ptr<AI> getAI();
+	    std::shared_ptr<Human> getHuman();
+	    std::shared_ptr<State> getState();
 };
 
 
