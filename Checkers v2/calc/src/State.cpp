@@ -33,8 +33,11 @@ State::State() {
 }
 
 Element State::at(int position) {
-
-    return board[position/BOARD_SIZE][position%BOARD_SIZE];
+    
+    if(position < 0 || position > 63)
+	return Element::OUT_OF_BOARD;
+    else
+    	return board[position/BOARD_SIZE][position%BOARD_SIZE];
 
 }
 

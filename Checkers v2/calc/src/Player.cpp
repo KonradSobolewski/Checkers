@@ -1,9 +1,9 @@
 #include "Player.hpp"
 
 Player::Player(bool isActive, Color color){
-    createPieces();
-    color_=color;
-    isActive_=isActive;
+    color_ = color;    
+    //createPieces();
+    isActive_ = isActive;
 }
 
 Player::~Player()
@@ -67,18 +67,18 @@ void Player::createPieces() {
         pieces_.push_back(std::make_shared<Piece>(22, 12, Element::WHITE_PIECE, true, false));
     }
     else{
-        pieces_.push_back(std::make_shared<Piece>(41, 1, Element::WHITE_PIECE, true, false));
-        pieces_.push_back(std::make_shared<Piece>(43, 2, Element::WHITE_PIECE, true, false));
-        pieces_.push_back(std::make_shared<Piece>(45, 3, Element::WHITE_PIECE, true, false));
-        pieces_.push_back(std::make_shared<Piece>(47, 4, Element::WHITE_PIECE, true, false));
-        pieces_.push_back(std::make_shared<Piece>(48, 5, Element::WHITE_PIECE, true, false));
-        pieces_.push_back(std::make_shared<Piece>(50, 6, Element::WHITE_PIECE, true, false));
-        pieces_.push_back(std::make_shared<Piece>(52, 7, Element::WHITE_PIECE, true, false));
-        pieces_.push_back(std::make_shared<Piece>(54, 8, Element::WHITE_PIECE, true, false));
-        pieces_.push_back(std::make_shared<Piece>(57, 9, Element::WHITE_PIECE, true, false));
-        pieces_.push_back(std::make_shared<Piece>(59, 10, Element::WHITE_PIECE, true, false));
-        pieces_.push_back(std::make_shared<Piece>(61, 11, Element::WHITE_PIECE, true, false));
-        pieces_.push_back(std::make_shared<Piece>(63, 12, Element::WHITE_PIECE, true, false));
+        pieces_.push_back(std::make_shared<Piece>(41, 1, Element::BLACK_PIECE, true, false));
+        pieces_.push_back(std::make_shared<Piece>(43, 2, Element::BLACK_PIECE, true, false));
+        pieces_.push_back(std::make_shared<Piece>(45, 3, Element::BLACK_PIECE, true, false));
+        pieces_.push_back(std::make_shared<Piece>(47, 4, Element::BLACK_PIECE, true, false));
+        pieces_.push_back(std::make_shared<Piece>(48, 5, Element::BLACK_PIECE, true, false));
+        pieces_.push_back(std::make_shared<Piece>(50, 6, Element::BLACK_PIECE, true, false));
+        pieces_.push_back(std::make_shared<Piece>(52, 7, Element::BLACK_PIECE, true, false));
+        pieces_.push_back(std::make_shared<Piece>(54, 8, Element::BLACK_PIECE, true, false));
+        pieces_.push_back(std::make_shared<Piece>(57, 9, Element::BLACK_PIECE, true, false));
+        pieces_.push_back(std::make_shared<Piece>(59, 10, Element::BLACK_PIECE, true, false));
+        pieces_.push_back(std::make_shared<Piece>(61, 11, Element::BLACK_PIECE, true, false));
+        pieces_.push_back(std::make_shared<Piece>(63, 12, Element::BLACK_PIECE, true, false));
     }
 
 }
@@ -115,4 +115,20 @@ void Player::update()
             }
         }
     }
+}
+
+
+std::shared_ptr<Piece> Player::getPieceById(int id) 
+{
+
+    
+    for(auto piece: pieces_) 
+	if( piece->getID() == id ) 
+		return piece;
+	
+    
+    
+    return pieces_[0];
+    
+
 }

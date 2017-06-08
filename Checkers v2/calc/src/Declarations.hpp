@@ -12,7 +12,7 @@ const static int BOARD_SIZE = 8;
 
 enum Color {BLACK, WHITE};
 
-enum class Element {WHITE_BLANK, BLACK_BLANK, WHITE_PIECE, BLACK_PIECE};
+enum Element {WHITE_BLANK, BLACK_BLANK, WHITE_PIECE, BLACK_PIECE, OUT_OF_BOARD};
 
 typedef std::vector<std::vector<Element>> Board;
 
