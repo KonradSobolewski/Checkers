@@ -166,13 +166,16 @@ BOOST_AUTO_TEST_CASE( checkMovesTest )
     auto game = std::make_shared<Game>();
     auto piece = game->getHuman()->getPieceById(9);
     auto aipiece = game->getAI()->getPieceById(2);
-    auto move = std::make_shared<Move>(25, true, piece, false, 0); 
+    auto move = std::make_shared<Move>(25, true, piece, false, 0);
+    BOOST_CHECK_EQUAL(game->checkMove(move), true);
     game->executeMove(move, game->getHuman());
     BOOST_CHECK_EQUAL(game->getHuman()->getPieceById(9)->getPosition(), 25);
     move = std::make_shared<Move>(34, true, piece, false, 0); 
+    BOOST_CHECK_EQUAL(game->checkMove(move), true);
     game->executeMove(move, game->getHuman());
     BOOST_CHECK_EQUAL(game->getHuman()->getPieceById(9)->getPosition(), 34);
     move = std::make_shared<Move>(25, true, aipiece, true, 34);
+    BOOST_CHECK_EQUAL(game->checkMove(move), true);
     game->executeMove(move, game->getAI());
     BOOST_CHECK_EQUAL(game->getHuman()->getPiecesNumber(), 11);
 

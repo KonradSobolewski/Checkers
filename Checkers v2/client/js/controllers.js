@@ -67,7 +67,7 @@ angular.module('myAppControllers', [])
 			}
 
 		 }])
-	.controller('loginController',['$scope', 'srvInfo','$location', '$rootScope', function($scope, srvInfo,$location, $rootScope) {
+	.controller('loginController',['$scope', 'srvInfo','$location', '$rootScope','$window', function($scope, srvInfo,$location, $rootScope,$window) {
 		$scope.username = "";
 		$scope.password = "";
 
@@ -76,7 +76,9 @@ angular.module('myAppControllers', [])
 			if ($scope.password=="lol" && $scope.username=="lol")
 			{
 				$location.path("/play");			
-			}			
+			}
+			else 
+				$window.alert("Blad logowania")	;		
 		}	
 
 	}]);
