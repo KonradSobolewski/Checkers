@@ -174,7 +174,7 @@ BOOST_AUTO_TEST_CASE( checkMovesTest )
     BOOST_CHECK_EQUAL(game->checkMove(move), true);
     game->executeMove(move, game->getHuman());
     BOOST_CHECK_EQUAL(game->getHuman()->getPieceById(9)->getPosition(), 34);
-    move = std::make_shared<Move>(25, true, aipiece, true, 34);
+    move = std::make_shared<Move>(25, false, aipiece, true, 34);
     BOOST_CHECK_EQUAL(game->checkMove(move), true);
     game->executeMove(move, game->getAI());
     BOOST_CHECK_EQUAL(game->getHuman()->getPiecesNumber(), 11);
@@ -220,17 +220,20 @@ BOOST_AUTO_TEST_CASE( simulateTwoAIs )
     game->executeMove(move, game->getHuman());
     BOOST_REQUIRE(playerPiece->getPosition() == 29);
     move = std::make_shared<Move>(38, true, playerPiece, false, 0);
+    BOOST_CHECK_EQUAL(game->checkMove(move), true);
     game->executeMove(move, game->getHuman()); 
-    BOOST_REQUIRE(playerPiece->getPosition() == 29);
-     std::vector<int> lol = {1,2};
-std::vector<int> lol2 = game->getState()->getPossibleMoves(ai->getPieceById(4));
-	BOOST_CHECK_EQUAL_COLLECTIONS(lol.begin(), lol.end(), lol2.begin(), lol2.end());
+    BOOST_REQUIRE(playerPiece->getPosition() == 38);
+    std::vector<int> lol = {29};
+    std::vector<int> lol2 = game->getState()->getPossibleMoves(ai->getPieceById(4));
+    BOOST_CHECK_EQUAL_COLLECTIONS(lol.begin(), lol.end(), lol2.begin(), lol2.end());
 
     auto aiMove = ai->makeMove(game->getState());
     BOOST_CHECK_EQUAL(aiMove->getPos(), 29);
     BOOST_CHECK_EQUAL(aiMove->getPiece()->getID(), 4);
+    BOOST_CHECK_EQUAL(aiMove->isHit(), true);
+    BOOST_CHECK_EQUAL(aiMove->getHitPos(), 38);
     BOOST_CHECK_EQUAL(game->checkMove(aiMove), true);
-    game->executeMove(move, ai);
+    game->executeMove(aiMove, ai);
     BOOST_CHECK_EQUAL(ai->getPieceById(4)->getPosition(), 29);
     BOOST_CHECK_EQUAL(player->getPiecesNumber(), 11);
    

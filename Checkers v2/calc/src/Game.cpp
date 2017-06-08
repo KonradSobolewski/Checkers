@@ -52,15 +52,14 @@ bool Game::checkVictory(const Player& player) const
 void Game::executeMove(std::shared_ptr<Move> move, std::shared_ptr<Player> player)
 {
     int newPosition = move->getPos();
-    int pieceMovedId = move->getPiece()->getID();
 
     state_->changeBoard(move->getPiece()->getPosition(), Element::BLACK_BLANK);
     state_->changeBoard(newPosition, move->getPiece()->getColor());
-    player->getPieceById(pieceMovedId)->setPosition(newPosition);
+    move->getPiece()->setPosition(newPosition);
     
     if(move->isHit()) {
         state_->changeBoard(move->getHitPos(), Element::BLACK_BLANK);
-        if(isHumanTurn_ == true)
+        if(move->isHumanMove() == true)
             ai_->hitPiece(move->getHitPos());
 	else
 	    human_->hitPiece(move->getHitPos());

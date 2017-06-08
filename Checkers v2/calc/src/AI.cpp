@@ -19,9 +19,9 @@ std::shared_ptr<Move> AI::makeMove(std::shared_ptr<State> state)
 {
      std::vector<int> moves;
      std::shared_ptr<Piece> piece;
-     bool isHit;
-     int hitPos;
-     int newPos;
+     bool isHit = false;
+     int hitPos = -1;
+     int newPos = -1;
      do 
 	{
      		piece = *select_randomly(pieces_.begin(), pieces_.end());
