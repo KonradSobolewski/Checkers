@@ -16,6 +16,14 @@ angular.module('myAppServices', [])
                      return $http.get(this.baseURL + 'calcpy/getNumber').success(callback);
                  };
 
+		 this.doLoginUser = function(callback, name, pass) { 
+		     return $http.get(this.baseURL + 'calcpy/loginUser', { params: { 'name': name, 'pass': pass } }).success(callback);
+		 };
+				 
+		 this.doRegisterUser = function(callback, name, pass) { 
+		     return $http.get(this.baseURL + 'calcpy/registerUser', {  params: { 'name': name, 'pass': pass} }).success(callback);
+		 };
+
 		 this.sendID = function(callback, idSource,idDest) {
                      return $http.get(this.baseURL + 'calcpy/printID', { params: { 'IDsource': idSource , 'IDdestination' : idDest} }).success(callback);
                  };

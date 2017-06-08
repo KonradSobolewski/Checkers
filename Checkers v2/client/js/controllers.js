@@ -12,6 +12,7 @@ angular.module('myAppControllers', [])
 			$scope.second = -1;
 			$scope.licznik=0;
 			$scope.player=true;
+			
 		
 			$scope.activeCpp = function(){
 				srvInfo.communicateCpp(
@@ -21,20 +22,6 @@ angular.module('myAppControllers', [])
 			}; 
 
 
-			$scope.move = function ()
-			{
-				$scope.player = !($scope.player);
-				if ($scope.player == true)
-				{
-					
-					// zmiana pozycji pionka
-				}
-				else
-				{
-					// zmiiana pozycji pionka AI
-				}			
-
-			};
 	
 			$scope.check = function(event) {
 				$scope.state++;
@@ -55,7 +42,10 @@ angular.module('myAppControllers', [])
 							$scope.counter = data;
 						}, $scope.first,$scope.second);
 						$scope.play = true;
-						$scope.move();
+						var selectedUser = document.getElementById(event.target.id).id;
+						//document.getElementByID(event.target.id).style.backgroundImage = "url('./views/img/redCircle.png')";
+    						alert("You selected " + selectedUser);
+		
 					}
 					$scope.first = -1;
 					$scope.second = -1;
@@ -71,15 +61,42 @@ angular.module('myAppControllers', [])
 		$scope.username = "";
 		$scope.password = "";
 
-		$scope.login=function()
+		$scope.login = function()
 		{
-			if ($scope.password=="lol" && $scope.username=="lol")
-			{
-				$location.path("/play");			
-			}
-			else 
-				$window.alert("Blad logowania")	;		
-		}	
+			
+			srvInfo.doLoginUser(
+			function (data)
+			{	
+				 if (data["session-token"])
+				 { 
+					 $location.path("/play");
+				 }
+				 else
+				 {
+					$window.alert("Blad logowania")	; 
+				 }
+			},$scope.username, $scope.password);
+			
+		};
+
+		$scope.register = function()
+		{
+			
+			srvInfo.doRegisterUser(
+			function (data)
+			{		
+				 if (data["session-token"])
+				 { 
+					 $location.path("/play");
+				 }
+				 else
+				 {
+					$window.alert("Blad logowania")	; 
+				 }
+				
+			},$scope.username, $scope.password);
+			
+		};
 
 	}]);
 
