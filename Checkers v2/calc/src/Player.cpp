@@ -46,7 +46,7 @@ int Player::getPiecesNumber()
     return pieces_.size();
 } //todo
 
-Player::pieces Player::getPieces()
+pieces Player::getPieces()
 {
     return pieces_;
 }

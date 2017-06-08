@@ -183,5 +183,52 @@ BOOST_AUTO_TEST_CASE( checkMovesTest )
 
 BOOST_AUTO_TEST_SUITE_END()
 
+BOOST_AUTO_TEST_SUITE( aiAlgorithm )
+
+BOOST_AUTO_TEST_CASE( possibleMove )
+{
+    
+    auto game = std::make_shared<Game>();
+    auto ai = game->getAI();
+    auto move = ai->makeMove(game->getState());
+    BOOST_CHECK_EQUAL(game->checkMove(move), true);
+
+}
+
+
+BOOST_AUTO_TEST_CASE( simulateTwoAIs )
+{
+    
+    auto game = std::make_shared<Game>();
+    auto ai = game->getAI();
+    auto piece = ai->getPieceById(5);
+    ai->hitPiece(41);
+    ai->hitPiece(43);
+    ai->hitPiece(45);
+    ai->hitPiece(48);
+    ai->hitPiece(50);
+    ai->hitPiece(52);
+    ai->hitPiece(54);
+    ai->hitPiece(57);
+    ai->hitPiece(59);
+    ai->hitPiece(61);
+    ai->hitPiece(63);   
+    BOOST_CHECK_EQUAL(ai->getPiecesNumber(), 1);
+    BOOST_REQUIRE(ai->getPiecesNumber() == 1);
+    auto player = game->getHuman();
+    auto playerPiece = player->getPieceById(11);
+    auto move = std::make_shared<Move>(29, true, playerPiece, false, 0);
+    game->executeMove(move, game->getHuman());
+    BOOST_REQUIRE(playerPiece->getPosition() == 29);
+    move = std::make_shared<Move>(38, true, playerPiece, false, 0);
+    game->executeMove(move, game->getHuman()); 
+    BOOST_REQUIRE(playerPiece->getPosition() == 38);
+    auto aiMove = ai->makeMove(game->getState());
+    BOOST_CHECK_EQUAL(game->checkMove(aiMove), true);
+    
+   
+}
+
+BOOST_AUTO_TEST_SUITE_END()
 
 

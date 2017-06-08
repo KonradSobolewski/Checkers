@@ -4,13 +4,15 @@
 #include "Piece.hpp"
 #include "Declarations.hpp"
 
+typedef std::vector<std::shared_ptr<Piece>> pieces;
+
 class Player
 {
 private:
     Color color_;
     bool isActive_;
     bool isWinner_;
-    typedef std::vector<std::shared_ptr<Piece>> pieces;
+protected:
     pieces pieces_;
 public:
     Player(bool isActive, Color color);

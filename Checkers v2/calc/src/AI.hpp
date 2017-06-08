@@ -1,7 +1,9 @@
-
 #ifndef AI_HPP
 #define AI_HPP
 #include "Player.hpp"
+#include "State.hpp"
+#include "Move.hpp"
+#include "RandElement.h"
 
 class AI: public Player
 {
@@ -10,7 +12,7 @@ public:
     AI(bool isActive, Color color);
     ~AI();
     void update();
-    int* makeMove();
+    std::shared_ptr<Move> makeMove(std::shared_ptr<State>);
 };
 
 

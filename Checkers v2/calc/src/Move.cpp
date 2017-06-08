@@ -34,6 +34,7 @@ void Move::setWhoseMove(bool isHumanMove)
 	humanMove_ = isHumanMove; 
 }
 
+
 bool Move::isHit() 
 { 
 	return isHit_; 
