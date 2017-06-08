@@ -2,7 +2,7 @@
 
 AI::AI(bool isActive, Color color): Player(isActive, color)
 {
-
+	createPieces();
 }
 
 AI::~AI()

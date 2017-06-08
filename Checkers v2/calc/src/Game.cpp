@@ -4,19 +4,15 @@
 
 Game::Game()
 {
-    //isHumanTurn_ = true;
-   // human_ = std::make_shared<Human>(true, Color::WHITE);
-   // ai_ = std::make_shared<AI>(false, Color::BLACK);
-    //state_ = std::make_shared<State>();
+    state_ = std::make_shared<State>();
+    ai_ = std::make_shared<AI>(false, BLACK);
+    human_ = std::make_shared<Human>(true, WHITE);
+
 }
 
 Game::~Game()
 {
-    state_ = std::make_shared<State>();
-    ai_ = std::make_shared<AI>(false, BLACK);
-    ai_->createPieces();
-    human_ = std::make_shared<Human>(true, WHITE);
-    human_->createPieces();
+    
 }
 
 
@@ -60,10 +56,8 @@ void Game::executeMove(std::shared_ptr<Move> move, std::shared_ptr<Player> playe
 
     state_->changeBoard(move->getPiece()->getPosition(), Element::BLACK_BLANK);
     state_->changeBoard(newPosition, move->getPiece()->getColor());
-    for(auto &piece: player->getPieces()) {
-        if(piece->getID() == pieceMovedId)
-            piece->setPosition(newPosition);
-    }
+    player->getPieceById(pieceMovedId)->setPosition(newPosition);
+    
     if(move->isHit()) {
         state_->changeBoard(move->getHitPos(), Element::BLACK_BLANK);
         if(isHumanTurn_ == true)
