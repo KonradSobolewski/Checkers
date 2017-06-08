@@ -201,7 +201,6 @@ BOOST_AUTO_TEST_CASE( simulateTwoAIs )
     
     auto game = std::make_shared<Game>();
     auto ai = game->getAI();
-    auto piece = ai->getPieceById(5);
     ai->hitPiece(41);
     ai->hitPiece(43);
     ai->hitPiece(45);
@@ -222,10 +221,18 @@ BOOST_AUTO_TEST_CASE( simulateTwoAIs )
     BOOST_REQUIRE(playerPiece->getPosition() == 29);
     move = std::make_shared<Move>(38, true, playerPiece, false, 0);
     game->executeMove(move, game->getHuman()); 
-    BOOST_REQUIRE(playerPiece->getPosition() == 38);
+    BOOST_REQUIRE(playerPiece->getPosition() == 29);
+     std::vector<int> lol = {1,2};
+std::vector<int> lol2 = game->getState()->getPossibleMoves(ai->getPieceById(4));
+	BOOST_CHECK_EQUAL_COLLECTIONS(lol.begin(), lol.end(), lol2.begin(), lol2.end());
+
     auto aiMove = ai->makeMove(game->getState());
+    BOOST_CHECK_EQUAL(aiMove->getPos(), 29);
+    BOOST_CHECK_EQUAL(aiMove->getPiece()->getID(), 4);
     BOOST_CHECK_EQUAL(game->checkMove(aiMove), true);
-    
+    game->executeMove(move, ai);
+    BOOST_CHECK_EQUAL(ai->getPieceById(4)->getPosition(), 29);
+    BOOST_CHECK_EQUAL(player->getPiecesNumber(), 11);
    
 }
 
