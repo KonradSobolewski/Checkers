@@ -23,7 +23,7 @@ State::State() {
                 if((i + j) % 2 == 0)
                     board[i][j] = Element::WHITE_PIECE;
         }
-        else if(i >= BOARD_SIZE - 2) {
+        else if(i >= BOARD_SIZE - 3) {
             for(int j = 0 ; j < BOARD_SIZE; j++)
                 if((i + j) % 2 == 0)
                     board[i][j] = Element::BLACK_PIECE;

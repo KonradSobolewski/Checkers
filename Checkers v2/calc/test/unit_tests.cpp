@@ -114,7 +114,28 @@ BOOST_AUTO_TEST_CASE( possibleMovesTest )
     std::vector<int> statePossibleMoves = state->getPossibleMoves(piece);
     std::vector<int> possibleMoves = {};
     BOOST_CHECK_EQUAL_COLLECTIONS(statePossibleMoves.begin(), statePossibleMoves.end(), possibleMoves.begin(), possibleMoves.end());
-    for (int j = 0; j < BOARD_SIZE; ++j)
-    	;//BOOST_CHECK_EQUAL_COLLECTIONS(statePossibleMoves[j].begin(), statePossibleMoves[j].end(), possibleMoves[j].begin(), possibleMoves[j].end()); 
+    
+    piece = player->getPieceById(9);
+    statePossibleMoves = state->getPossibleMoves(piece);
+    std::vector<int> possibleMoves2 = {25};
+    BOOST_CHECK_EQUAL_COLLECTIONS(statePossibleMoves.begin(), statePossibleMoves.end(), possibleMoves2.begin(), possibleMoves2.end());
+
+    piece = player->getPieceById(11);
+    std::vector<int> possibleMoves3 = {29, 27};
+    statePossibleMoves = state->getPossibleMoves(piece);
+    BOOST_CHECK_EQUAL_COLLECTIONS(statePossibleMoves.begin(), statePossibleMoves.end(), possibleMoves3.begin(), possibleMoves3.end());
+
+    auto player2 = std::make_shared<Player>(false, BLACK);
+    player2->createPieces();
+    piece = player2->getPieceById(8);
+    std::vector<int> possibleMoves4 = {};
+    statePossibleMoves = state->getPossibleMoves(piece);
+    BOOST_CHECK_EQUAL_COLLECTIONS(statePossibleMoves.begin(), statePossibleMoves.end(), possibleMoves4.begin(), possibleMoves4.end());
+
+    piece = player2->getPieceById(1);
+    std::vector<int> possibleMoves5 = {32, 34};
+    statePossibleMoves = state->getPossibleMoves(piece);
+    BOOST_CHECK_EQUAL_COLLECTIONS(statePossibleMoves.begin(), statePossibleMoves.end(), possibleMoves5.begin(), possibleMoves5.end());
+
 }
 BOOST_AUTO_TEST_SUITE_END()
