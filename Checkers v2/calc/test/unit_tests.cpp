@@ -228,6 +228,7 @@ BOOST_AUTO_TEST_CASE( simulateTwoAIs )
     BOOST_CHECK_EQUAL_COLLECTIONS(lol.begin(), lol.end(), lol2.begin(), lol2.end());
 
     auto aiMove = ai->makeMove(game->getState());
+    BOOST_CHECK_EQUAL(aiMove->getPiece()->getPosition(), 47);
     BOOST_CHECK_EQUAL(aiMove->getPos(), 29);
     BOOST_CHECK_EQUAL(aiMove->getPiece()->getID(), 4);
     BOOST_CHECK_EQUAL(aiMove->isHit(), true);
