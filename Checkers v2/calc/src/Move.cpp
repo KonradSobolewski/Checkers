@@ -44,3 +44,4 @@ int Move::getHitPos()
 { 
 	return hitPosition_; 
 }
+

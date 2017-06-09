@@ -39,4 +39,3 @@ std::shared_ptr<Move> AI::makeMove(std::shared_ptr<State> state)
      return std::make_shared<Move>(newPos, false, piece, isHit, hitPos);
 }
 
-

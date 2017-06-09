@@ -114,14 +114,16 @@ def makeMove(params):
 	}
 
 def makeAIMove(params):
-	
-	#moveAI = game.getAI().makeMove(game.getState());
-	#oldPos = moveAI.getPiece().getPosition();
+	moveAI = game.getAI().makeMove(game.getState());
+	newPos = str(moveAI.getPos());
+	print('AI 3 ' + newPos)
 	#game.executeMove(moveAI,game.getAI());
-	#newPos = moveAI.getPos();
+	
+	print('AI 4 ')
+	oldPos=29;
 	return {
-		'source' : 1,
-		'destination' : 1
+		'src' : oldPos,
+		'dest' : newPos
 	}
 
 def cppCom(params):

@@ -96,9 +96,9 @@ angular.module('myAppControllers', [])
 						}
 						//AI rusza czerwonym
 						srvInfo.makeAIMove( function(data){  $scope.aiState = data; });
-						
-						
-	
+						$scope.board[$scope.aiState.src] = '';
+						$scope.board[$scope.aiState.dest] = './views/img/redCircle.png';
+
 					}
 					$scope.first = -1;
 					$scope.second = -1;
