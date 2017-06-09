@@ -70,7 +70,7 @@ angular.module('myAppControllers', [])
 				
 				if ($scope.first != -1 && $scope.second != -1)
 				{	
-					if(($scope.first != $scope.second) &&  ($scope.board[$scope.first] == './views/img/whiteCircle.png'))  //tylko białego możemy ruszyć
+					if($scope.board[$scope.first] == './views/img/whiteCircle.png'  && $scope.board[$scope.second] == '')  //tylko białego możemy ruszyć
 					{	srvInfo.makeMove(
 						function(data){
 							$scope.humanState = data;
@@ -78,21 +78,8 @@ angular.module('myAppControllers', [])
 
 						if($scope.humanState.state)//good move
 						{
-							if ($scope.board[$scope.first] == './views/img/redCircle.png' && $scope.board[$scope.second] == '')
-							{
-								$scope.board[$scope.second] = './views/img/redCircle.png';
-								$scope.board[$scope.first] = '';
-							}
-							else if ($scope.board[$scope.first] == './views/img/whiteCircle.png' && $scope.board[$scope.second] == '')
-							{
-								$scope.board[$scope.second] = './views/img/whiteCircle.png';
-								$scope.board[$scope.first] = '';
-							}
-							else if ($scope.board[$scope.second] == '' && $scope.board[$scope.first] == '')
-							{
-								$scope.board[$scope.first] = '';
-								$scope.board[$scope.second] = '';
-							}
+							$scope.board[$scope.second] = './views/img/whiteCircle.png';
+							$scope.board[$scope.first] = '';
 						}
 						//AI rusza czerwonym
 						srvInfo.makeAIMove( function(data){  $scope.aiState = data; });

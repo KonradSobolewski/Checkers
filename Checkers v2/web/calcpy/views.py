@@ -115,16 +115,24 @@ def makeMove(params):
 
 def makeAIMove(params):
 	moveAI = game.getAI().makeMove(game.getState())
-	oldPos = moveAI.getPiece().getPosition()
+	oldPos = str(moveAI.getPiece().getPosition())
 	newPos = str(moveAI.getPos())
 	isHit = moveAI.isHit()
- 	hitPos = moveAi.getHitPos()	
+ 	hitPos = str(moveAi.getHitPos())	
 	game.executeMove(moveAI,game.getAI());
-	return {
-			'src' : str(oldPos),
-			'dest' : str(newPos),
+	if isHit :
+		return {
+			'src' : oldPos,
+			'dest' : newPos,
 			'isHit': isHit,
-			'hitPos' : str(-1)
+			'hitPos' : hitPos
+		}
+	else:
+		return {
+			'src' : oldPos,
+			'dest' : newPos,
+			'isHit': isHit,
+			'hitPos' : -1
 		}
 
 def cppCom(params):
