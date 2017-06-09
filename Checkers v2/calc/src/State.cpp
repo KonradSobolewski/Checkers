@@ -78,6 +78,11 @@ std::vector<int>&& State::getPossibleMoves(std::shared_ptr<Piece> piece){
 
 }
 
+Board State::getBoard()
+{
+	return board;
+}
+
 void State::changeBoard(int position, Element element)
 {
 

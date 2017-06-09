@@ -24,6 +24,7 @@ h1
     border-radius: 5%;
     float:left;
     background-color: #EEEFFE;
+    background-position : center;
 
 }	
 
@@ -31,8 +32,6 @@ h1
 {
     width:64px;
     height:64px;
-
-
 }
 
 
@@ -46,6 +45,7 @@ h1
     border-radius: 5%;
     float:left;
     background-color: #4f4f4f;
+    background-position : center;
 }
 
 .blackPiece:hover

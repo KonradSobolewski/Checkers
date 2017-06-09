@@ -29,7 +29,35 @@ BOOST_PYTHON_MODULE( calc )
 	.value( "WHITE", WHITE )
 	;
 
-    class_<Game,std::shared_ptr<Game>>("Game")
-        .def( "getX", &Game::getX)
+    boost::python::enum_<Element>("Element")
+	.value( "WHITE_BLANK", WHITE_BLANK )
+	.value( "BLACK_BLANK", BLACK_BLANK )
+	.value( "WHITE_PIECE", WHITE_PIECE )
+	.value( "BLACK_PIECE", BLACK_PIECE )
+	.value( "OUT_OF_BOARD", OUT_OF_BOARD )
+	;
+    
+    boost::python::class_<State,std::shared_ptr<State>>("State",boost::python::init<>())
+	.def( "getBoard", &State::getBoard)
+		;
+
+    boost::python::class_<Move,std::shared_ptr<Move>>("Move",boost::python::init<int, bool, std::shared_ptr<Piece>, bool, int>())
+		;
+
+    boost::python::class_<Player,std::shared_ptr<Player>>("Player",boost::python::init<bool,Color>())
+		;
+
+    boost::python::class_<Piece,std::shared_ptr<Piece>>("Piece",boost::python::init<int, int, Element, bool, bool>())
+		;
+
+    boost::python::class_<Game,std::shared_ptr<Game>>("Game",boost::python::init<>())
+        .def("getX", &Game::getX)
+	.def("isHumanTurn", &Game::isHumanTurn)
+	.def("checkMove", &Game::checkMove)
+	.def("executeMove", &Game::executeMove)
+	.def("checkVictory", &Game::checkVictory)
+	.def("getState", &Game::getState)
+	.def("getAI", &Game::getAI)
+	.def("getHuman", &Game::getHuman)
         ;
 }

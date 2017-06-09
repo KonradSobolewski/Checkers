@@ -10,9 +10,43 @@ angular.module('myAppControllers', [])
 			$scope.state = 0;
 			$scope.first = -1;
 			$scope.second = -1;
-			$scope.licznik=0;
-			$scope.player=true;
-			
+			$scope.humanState = 0;
+			$scope.aiState = 0;
+
+			$scope.board = {
+				0 : './views/img/whiteCircle.png',
+				2 : './views/img/whiteCircle.png',
+				4 : './views/img/whiteCircle.png',
+				6 : './views/img/whiteCircle.png',
+				9 : './views/img/whiteCircle.png',
+				11 : './views/img/whiteCircle.png',
+				13 : './views/img/whiteCircle.png',
+				15 : './views/img/whiteCircle.png',
+				16 : './views/img/whiteCircle.png',
+				18 : './views/img/whiteCircle.png',
+				20 : './views/img/whiteCircle.png',
+				22 : './views/img/whiteCircle.png',
+				25 : '',
+				27 : '',
+				29 : '',
+				31 : '',
+				32 : '',
+				34 : '',
+				36 : '',
+				38 : '',
+				41 : './views/img/redCircle.png',
+				43 : './views/img/redCircle.png',
+				45 : './views/img/redCircle.png',
+				47 : './views/img/redCircle.png',
+				48 : './views/img/redCircle.png',
+				50 : './views/img/redCircle.png',
+				52 : './views/img/redCircle.png',
+				54 : './views/img/redCircle.png',
+				57 : './views/img/redCircle.png',
+				59 : './views/img/redCircle.png',
+				61 : './views/img/redCircle.png',
+				63 : './views/img/redCircle.png'
+			};
 		
 			$scope.activeCpp = function(){
 				srvInfo.communicateCpp(
@@ -36,16 +70,35 @@ angular.module('myAppControllers', [])
 				
 				if ($scope.first != -1 && $scope.second != -1)
 				{	
-					if($scope.first != $scope.second)
-					{	srvInfo.sendID(
+					if(($scope.first != $scope.second) &&  ($scope.board[$scope.first] == './views/img/whiteCircle.png'))  //tylko białego możemy ruszyć
+					{	srvInfo.makeMove(
 						function(data){
-							$scope.counter = data;
+							$scope.humanState = data;
 						}, $scope.first,$scope.second);
-						$scope.play = true;
-						var selectedUser = document.getElementById(event.target.id).id;
-						//document.getElementByID(event.target.id).style.backgroundImage = "url('./views/img/redCircle.png')";
-    						alert("You selected " + selectedUser);
-		
+
+						if($scope.humanState.state)//good move
+						{
+							if ($scope.board[$scope.first] == './views/img/redCircle.png' && $scope.board[$scope.second] == '')
+							{
+								$scope.board[$scope.second] = './views/img/redCircle.png';
+								$scope.board[$scope.first] = '';
+							}
+							else if ($scope.board[$scope.first] == './views/img/whiteCircle.png' && $scope.board[$scope.second] == '')
+							{
+								$scope.board[$scope.second] = './views/img/whiteCircle.png';
+								$scope.board[$scope.first] = '';
+							}
+							else if ($scope.board[$scope.second] == '' && $scope.board[$scope.first] == '')
+							{
+								$scope.board[$scope.first] = '';
+								$scope.board[$scope.second] = '';
+							}
+						}
+						//AI rusza czerwonym
+						srvInfo.makeAIMove( function(data){  $scope.aiState = data; });
+						
+						
+	
 					}
 					$scope.first = -1;
 					$scope.second = -1;
@@ -63,38 +116,48 @@ angular.module('myAppControllers', [])
 
 		$scope.login = function()
 		{
-			
-			srvInfo.doLoginUser(
-			function (data)
-			{	
-				 if (data["session-token"])
-				 { 
-					 $location.path("/play");
-				 }
-				 else
-				 {
-					$window.alert("Blad logowania")	; 
-				 }
-			},$scope.username, $scope.password);
+			if($scope.username!="" && $scope.password!="")
+			{
+				srvInfo.doLoginUser(
+				function (data)
+				{	
+					 if (data["session-token"])
+					 { 
+						 $location.path("/play");
+					 }
+					 else
+					 {
+						$window.alert("Blad logowania")	; 
+					 }
+				},$scope.username, $scope.password);
+			}
+			else
+		  	{
+				$window.alert("Blad logowania"); 
+			}
 			
 		};
 
 		$scope.register = function()
-		{
+		{	
+			if($scope.username!="" && $scope.password!="")
+			{
 			
-			srvInfo.doRegisterUser(
-			function (data)
-			{		
-				 if (data["session-token"])
-				 { 
-					 $location.path("/play");
-				 }
-				 else
-				 {
-					$window.alert("Blad logowania")	; 
-				 }
+				srvInfo.doRegisterUser(
+				function (data)
+				{		
+					 if (data["session-token"])
+					 { 
+						 $location.path("/play");
+					 }
+					
 				
-			},$scope.username, $scope.password);
+				},$scope.username, $scope.password);
+			}
+			else
+			{
+				$window.alert("Blad rejestracji"); 
+			}
 			
 		};
 

@@ -2,84 +2,84 @@
 	<h1>Checkers game</h1>
 	<table id="gametable">
 		<tr >
-			<td  id ="0" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/whiteCircle.png) ;background-repeat:no-repeat"> 
+			<td  id ="0" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[0]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="1" class="whitePiece" ></td>
-			<td   id ="2" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/whiteCircle.png) ;background-repeat:no-repeat">
+			<td   id ="2" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[2]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="3" class="whitePiece" ></td>
-			<td   id ="4" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/whiteCircle.png) ;background-repeat:no-repeat"></td>
+			<td   id ="4" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[4]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="5" class="whitePiece" ></td>
-			<td   id ="6" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/whiteCircle.png) ;background-repeat:no-repeat"></td>
+			<td   id ="6" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[6]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="7" class="whitePiece" ></td>
 		</tr>
 		<tr >
 			<td   id ="8" class="whitePiece" ></td>
-			<td   id ="9" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/whiteCircle.png) ;background-repeat:no-repeat"></td>
+			<td   id ="9" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[9]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="10" class="whitePiece" ></td>
-			<td   id ="11" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/whiteCircle.png) ;background-repeat:no-repeat"></td>
+			<td   id ="11" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[11]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="12" class="whitePiece" ></td>
-			<td   id ="13" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/whiteCircle.png) ;background-repeat:no-repeat"></td>
+			<td   id ="13" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[13]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="14" class="whitePiece" ></td>
-			<td   id ="15" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/whiteCircle.png) ;background-repeat:no-repeat"></td>
+			<td   id ="15" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[15]}}) ;background-repeat:no-repeat"></td>
 		</tr>
 <tr >
-			<td   id ="16" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/whiteCircle.png) ;background-repeat:no-repeat"></td>
+			<td   id ="16" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[16]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="17" class="whitePiece" ></td>
-			<td   id ="18" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/whiteCircle.png) ;background-repeat:no-repeat"></td>
+			<td   id ="18" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[18]}}) ;background-repeat:no-repeat"></td>
 			<td  id ="19" class="whitePiece" ></td>
-			<td  id ="20" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/whiteCircle.png) ;background-repeat:no-repeat"></td>
+			<td  id ="20" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[20]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="21" class="whitePiece" ></td>
-			<td   id ="22" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/whiteCircle.png) ;background-repeat:no-repeat"></td>
+			<td   id ="22" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[22]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="23" class="whitePiece" ></td>
 		</tr>
 		<tr >
 			<td  id ="24" class="whitePiece" ></td>
-			<td  id ="25" class="blackPiece" data-ng-click="check($event)"></td>
+			<td  id ="25" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[25]}}) ;background-repeat:no-repeat">
 			<td  id ="26" class="whitePiece" ></td>
-			<td  id ="27" class="blackPiece" data-ng-click="check($event)"></td>
+			<td  id ="27" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[27]}}) ;background-repeat:no-repeat"></td>
 			<td  id ="28" class="whitePiece" ></td>
-			<td   id ="29" class="blackPiece" data-ng-click="check($event)"></td>
+			<td   id ="29" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[29]}}) ;background-repeat:no-repeat"></td>
 			<td  id ="30" class="whitePiece" ></td>
-			<td   id ="31" class="blackPiece" data-ng-click="check($event)"></td>
+			<td   id ="31" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[31]}}) ;background-repeat:no-repeat"></td>
 		</tr>
 <tr >
-			<td  id ="32" class="blackPiece" data-ng-click="check($event)"></td>
+			<td  id ="32" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[32]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="33" class="whitePiece" ></td>
-			<td   id ="34" class="blackPiece" data-ng-click="check($event)"></td>
+			<td   id ="34" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[34]}}) ;background-repeat:no-repeat"></td>
 			<td  id ="35" class="whitePiece" ></td>
-			<td  id ="36" class="blackPiece" data-ng-click="check($event)"></td>
+			<td  id ="36" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[36]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="37" class="whitePiece" ></td>
-			<td   id ="38" class="blackPiece" data-ng-click="check($event)"></td>
+			<td   id ="38" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[38]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="39" class="whitePiece" ></td>
 		</tr>
 		<tr >
 			<td  id ="40" class="whitePiece" ></td>
-			<td  id ="41" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/redCircle.png) ;background-repeat:no-repeat"></td>
+			<td  id ="41" class="blackPiece" data-ng-click="check($event)"  style="background-image:url({{board[41]}}) ;background-repeat:no-repeat"></td>
 			<td  id ="42" class="whitePiece" ></td>
-			<td  id ="43" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/redCircle.png) ;background-repeat:no-repeat"></td>
+			<td  id ="43" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[43]}}) ;background-repeat:no-repeat"></td>
 			<td  id ="44" class="whitePiece" ></td>
-			<td   id ="45" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/redCircle.png) ;background-repeat:no-repeat"></td>
+			<td   id ="45" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[45]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="46" class="whitePiece" ></td>
-			<td   id ="47" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/redCircle.png) ;background-repeat:no-repeat"></td>
+			<td   id ="47" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[47]}}) ;background-repeat:no-repeat"></td>
 		</tr>
 <tr >
-			<td  id ="48" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/redCircle.png) ;background-repeat:no-repeat"></td>
+			<td  id ="48" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[48]}}) ;background-repeat:no-repeat"></td>
 			<td  id ="49" class="whitePiece" ></td>
-			<td id ="50" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/redCircle.png) ;background-repeat:no-repeat"></td>
+			<td id ="50" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[50]}}) ;background-repeat:no-repeat"></td>
 			<td  id ="51" class="whitePiece" ></td>
-			<td  id ="52" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/redCircle.png) ;background-repeat:no-repeat"></td>
+			<td  id ="52" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[52]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="53" class="whitePiece" ></td>
-			<td   id ="54" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/redCircle.png) ;background-repeat:no-repeat"></td>
+			<td   id ="54" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[54]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="55" class="whitePiece" ></td>
 		</tr>
 		<tr >
 			<td  id ="56" class="whitePiece" ></td>
-			<td  id ="57" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/redCircle.png) ;background-repeat:no-repeat"></td>
+			<td  id ="57" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[57]}}) ;background-repeat:no-repeat"></td>
 			<td  id ="58" class="whitePiece" ></td>
-			<td  id ="59" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/redCircle.png) ;background-repeat:no-repeat"></td>
+			<td  id ="59" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[59]}}) ;background-repeat:no-repeat"></td>
 			<td  id ="60" class="whitePiece" ></td>
-			<td   id ="61" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/redCircle.png) ;background-repeat:no-repeat"></td>
+			<td   id ="61" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[61]}}) ;background-repeat:no-repeat"></td>
 			<td   id ="62" class="whitePiece" ></td>
-			<td   id ="63" class="blackPiece" data-ng-click="check($event)" style="background-image:url(./views/img/redCircle.png) ;background-repeat:no-repeat"></td>
+			<td   id ="63" class="blackPiece" data-ng-click="check($event)" style="background-image:url({{board[63]}}) ;background-repeat:no-repeat"></td>
 		</tr>
 
 
@@ -88,12 +88,12 @@
 		<p> ID's of clicked fields </p>
 		<table>
 			<tr>
-				<td class="whitePiece" id="piece1" data-ng-click="check($event)" >{{ counter.number }}</td>
-				<td class="blackPiece" id="piece2" data-ng-click="check($event)" >{{ counter.number }}</td>
+				<td class="whitePiece" id="piece1" data-ng-click="check($event)" >{{ humanState.number }}</td>
+				<td class="blackPiece" id="piece2" data-ng-click="check($event)" >{{ humanState.number }}</td>
 			</tr>		
 		</table>		
 		</br>
 		<button class="CppButton" data-ng-click="activeCpp()" id="Cpp_Command"> COMMUNICATE WITH C++ </button>
-		<p>Number send by cpp {{ numberFromCpp }} licznik {{ licznik }}</p>
+		<p>Number send by cpp {{ numberFromCpp }} </p>
 	</div>
 </div>
