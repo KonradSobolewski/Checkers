@@ -14,6 +14,7 @@ public:
     void changeBoard(int position, Element element);
     std::vector<int>&& getPossibleMoves(std::shared_ptr<Piece> piece);
     Board getBoard();
+    
 };
 
 

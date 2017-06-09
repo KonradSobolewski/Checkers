@@ -105,23 +105,34 @@ def registerUser(params):
 
 
 def makeMove(params):
-	idSource = params['IDsource']
-	idDest = params['IDdestination']
-	print('send move: ' + idSource + " to " + idDest)
+        
+	idSource = int(params['IDsource'])
+	idDest = int(params['IDdestination'])
+        distance = abs(idSource - idDest)
+	isLong = False
+	probableHitPos = -1
+	if distance >=14 :
+		isLong = True
+		probableHitPos = (idDest - idSource)/2 + idSource
+        playerPiece = game.getHuman().getPieceByPosition(idSource)
+	playerMove = Move(idDest, True, playerPiece, isLong, probableHitPos)
+	allowToMove = 0
+	if bool(game.checkMove(playerMove)):
+		luck = game.executeMove(playerMove,game.getHuman());
+		allowToMove = 1
 	return {
 		'number' : params['IDsource'],
-		'state' : 1
+		'state' : allowToMove
 	}
+	
 
 def makeAIMove(params):
 	moveAI = game.getAI().makeMove(game.getState())
 	oldPos = str(moveAI.getPiece().getPosition())
 	newPos = str(moveAI.getPos())
-	isHit = moveAI.isHit()
- 	hitPos = str(moveAI.getHitPos())
-	print('alert 5')	
-	#game.executeMove(moveAI,game.getAI());
-	print('alert 6')
+	isHit = bool(moveAI.isHit())
+ 	hitPos = str(moveAI.getHitPos())	
+	luck = game.executeMove(moveAI,game.getAI());
 	return {
 			'src' : oldPos,
 			'dest' : newPos,

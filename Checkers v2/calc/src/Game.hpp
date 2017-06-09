@@ -23,12 +23,13 @@ class Game
 	    int getX();
 	    bool isHumanTurn() const; //sprawdza czyj ruch
 	    bool checkMove(std::shared_ptr<Move>) const; // sprawdza możliwość wykonania ruchu
-	    void executeMove(std::shared_ptr<Move> move, std::shared_ptr<Player> player) ; // wykonuje ruch
+	    bool executeMove(std::shared_ptr<Move> move, std::shared_ptr<Player> player) ; // wykonuje ruch
 	    bool checkVictory(const Player& player) const; //sprawdza wygraną
 	    void notify(); // wzorzec obserwatora
             std::shared_ptr<AI> getAI();
 	    std::shared_ptr<Human> getHuman();
 	    std::shared_ptr<State> getState();
+	   
 };
 
 

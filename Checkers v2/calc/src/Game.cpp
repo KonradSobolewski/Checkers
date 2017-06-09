@@ -49,8 +49,8 @@ bool Game::checkVictory(const Player& player) const
 
 }
 
-void Game::executeMove(std::shared_ptr<Move> move, std::shared_ptr<Player> player)
-{
+bool Game::executeMove(std::shared_ptr<Move> move, std::shared_ptr<Player> player)
+{    
     int newPosition = move->getPos();
 
     state_->changeBoard(move->getPiece()->getPosition(), Element::BLACK_BLANK);
@@ -65,8 +65,9 @@ void Game::executeMove(std::shared_ptr<Move> move, std::shared_ptr<Player> playe
 	    human_->hitPiece(move->getHitPos());
     }
     isHumanTurn_ = !isHumanTurn_;
-
+    return true;
 }
+
 
 void Game::notify()
 {

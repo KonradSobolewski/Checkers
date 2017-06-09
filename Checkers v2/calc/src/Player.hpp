@@ -28,6 +28,7 @@ public:
     void createPieces();
     void hitPiece(int pos);
     std::shared_ptr<Piece>  getPieceById(int id);
+    std::shared_ptr<Piece>  getPieceByPosition(int pos);
     virtual void update();
 };
 

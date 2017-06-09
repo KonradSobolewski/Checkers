@@ -132,3 +132,18 @@ std::shared_ptr<Piece> Player::getPieceById(int id)
     
 
 }
+
+std::shared_ptr<Piece> Player::getPieceByPosition(int pos) 
+{
+
+    
+    for(auto piece: pieces_) 
+	if( piece->getPosition() == pos ) 
+		return piece;
+	
+    
+    
+    return pieces_[0];
+    
+
+}

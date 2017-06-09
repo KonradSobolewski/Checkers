@@ -80,11 +80,17 @@ angular.module('myAppControllers', [])
 						{
 							$scope.board[$scope.second] = './views/img/whiteCircle.png';
 							$scope.board[$scope.first] = '';
+
+							//AI rusza czerwonym
+							srvInfo.makeAIMove( function(data){  $scope.aiState = data; });
+							$scope.board[$scope.aiState.src] = '';
+							$scope.board[$scope.aiState.dest] = './views/img/redCircle.png';
+							if ($scope.aiState.isHit!=-1)
+							{
+								$scope.board[$scope.aiState.hitPos] = '';
+							}
 						}
-						//AI rusza czerwonym
-						srvInfo.makeAIMove( function(data){  $scope.aiState = data; });
-						$scope.board[$scope.aiState.src] = '';
-						$scope.board[$scope.aiState.dest] = './views/img/redCircle.png';
+						
 
 					}
 					$scope.first = -1;

@@ -39,14 +39,15 @@ BOOST_PYTHON_MODULE( calc )
     
     boost::python::class_<State,std::shared_ptr<State>>("State",boost::python::init<>())
 	.def( "getBoard", &State::getBoard)
-		;
-    boost::python::class_<Piece,std::shared_ptr<Piece>>("Piece",boost::python::init<int , int, Element , bool , bool>())
-	.def( "getPosition", &Piece::getPosition)
+	.def( "changeBoard", &State::changeBoard)
 		;
 
-    boost::python::class_<AI,std::shared_ptr<AI>>("AI",boost::python::init<bool,Color>())
-	.def( "makeMove", &AI::makeMove)
+    boost::python::class_<Piece,std::shared_ptr<Piece>>("Piece",boost::python::init<int , int, Element , bool , bool>())
+	.def( "getPosition", &Piece::getPosition)
+	.def( "setPosition", &Piece::setPosition)
+	.def( "getColor", &Piece::getColor)
 		;
+
 
     boost::python::class_<Move,std::shared_ptr<Move>>("Move",boost::python::init<int, bool, std::shared_ptr<Piece>, bool, int>())
 	.def("getPos", &Move::getPos)
@@ -62,11 +63,16 @@ BOOST_PYTHON_MODULE( calc )
 	.def("isWinner", &Player::isWinner)
 	.def("getPieces", &Player::getPieces)
 	.def("getPieceById", &Player::getPieceById)
+	.def("getPieceByPosition", &Player::getPieceByPosition)
+	.def("hitPiece", &Player::hitPiece)
+		;
+    boost::python::class_<AI,boost::python::bases<Player>,std::shared_ptr<AI>>("AI",boost::python::init<bool,Color>())
+	.def( "makeMove", &AI::makeMove)
+		;	
+
+    boost::python::class_<Human,boost::python::bases<Player>,std::shared_ptr<Human>>("Human",boost::python::init<bool,Color>())
 		;
 
-    boost::python::class_<Piece,std::shared_ptr<Piece>>("Piece",boost::python::init<int, int, Element, bool, bool>())
-	.def("getPosition", &Piece::getPosition)
-		;
 
     boost::python::class_<Game,std::shared_ptr<Game>>("Game",boost::python::init<>())
         .def("getX", &Game::getX)
@@ -78,4 +84,6 @@ BOOST_PYTHON_MODULE( calc )
 	.def("getAI", &Game::getAI)
 	.def("getHuman", &Game::getHuman)
         ;
+
+   
 }
