@@ -70,7 +70,7 @@ angular.module('myAppControllers', [])
 				
 				if ($scope.first != -1 && $scope.second != -1)
 				{	
-					if($scope.board[$scope.first] == './views/img/whiteCircle.png'  && $scope.board[$scope.second] == '')  //tylko białego możemy ruszyć
+					if(($scope.board[$scope.first] == './views/img/whiteCircle.png'  && $scope.board[$scope.second] == ''))  //tylko białego możemy ruszyć
 					{	srvInfo.makeMove(
 						function(data){
 							$scope.humanState = data;

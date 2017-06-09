@@ -65,6 +65,7 @@ BOOST_PYTHON_MODULE( calc )
 		;
 
     boost::python::class_<Piece,std::shared_ptr<Piece>>("Piece",boost::python::init<int, int, Element, bool, bool>())
+	.def("getPosition", &Piece::getPosition)
 		;
 
     boost::python::class_<Game,std::shared_ptr<Game>>("Game",boost::python::init<>())
