@@ -43,38 +43,41 @@ Element State::at(int position) {
 
 std::vector<int>&& State::getPossibleMoves(std::shared_ptr<Piece> piece){
 
-    std::vector<int> *possibleMoves = new std::vector<int>();
-    int posPiece = piece->getPosition();
-    Element pieceColor = piece->getColor();
-    Element oppositeColor;
-    if(pieceColor == Element::WHITE_PIECE)
-        oppositeColor = Element::BLACK_PIECE;
-    else
-        oppositeColor = Element::WHITE_PIECE;
+	std::vector<int> *possibleMoves = new std::vector<int>();
+	int posPiece = piece->getPosition();
+	Element pieceColor = piece->getColor();
+	Element oppositeColor;
+ 	if(pieceColor == Element::WHITE_PIECE)
+ 		oppositeColor = Element::BLACK_PIECE;
+ 	else
+		oppositeColor = Element::WHITE_PIECE;
+	
+	if(piece->getWhoseMove() == true){
+		if(at(posPiece + 9) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 7)
+		    possibleMoves->push_back(posPiece + 9);
+		if(at(posPiece + 9 ) == oppositeColor && at(posPiece + 18) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 7)
+		    possibleMoves->push_back(posPiece + 18);
+		if(at(posPiece + 7) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 0)
+		    possibleMoves->push_back(posPiece + 7);
+		if(at(posPiece + 7 ) == oppositeColor && at(posPiece + 14) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 0)
+		    possibleMoves->push_back(posPiece + 14);
 
-        if(at(posPiece + 9) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 7)
-            possibleMoves->push_back(posPiece + 9);
-        if(at(posPiece + 9 ) == oppositeColor && at(posPiece + 18) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 7)
-            possibleMoves->push_back(posPiece + 18);
-        if(at(posPiece + 7) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 0)
-            possibleMoves->push_back(posPiece + 7);
-        if(at(posPiece + 7 ) == oppositeColor && at(posPiece + 14) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 0)
-            possibleMoves->push_back(posPiece + 14);
+        }
+	else
+	{
+		if(at(posPiece - 9) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 0)
+		    possibleMoves->push_back(posPiece - 9);
+		if(at(posPiece - 9 ) == oppositeColor && at(posPiece - 18) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 0)
+		    possibleMoves->push_back(posPiece - 18);
+		if(at(posPiece - 7) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 7)
+		    possibleMoves->push_back(posPiece - 7);
+		if(at(posPiece - 7 ) == oppositeColor && at(posPiece - 14) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 7)
+		    possibleMoves->push_back(posPiece - 14);
+	}
 
 
 
-        if(at(posPiece - 9) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 0)
-            possibleMoves->push_back(posPiece - 9);
-        if(at(posPiece - 9 ) == oppositeColor && at(posPiece - 18) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 0)
-            possibleMoves->push_back(posPiece - 18);
-        if(at(posPiece - 7) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 7)
-            possibleMoves->push_back(posPiece - 7);
-        if(at(posPiece - 7 ) == oppositeColor && at(posPiece - 14) == Element::BLACK_BLANK && posPiece % BOARD_SIZE != 7)
-            possibleMoves->push_back(posPiece - 14);
-
-
-
-    return std::move(*possibleMoves);
+       return std::move(*possibleMoves);
 
 }
 

@@ -79,7 +79,11 @@ angular.module('myAppControllers', [])
 						if($scope.humanState.state)//good move
 						{
 							$scope.board[$scope.second] = './views/img/whiteCircle.png';
-							$scope.board[$scope.first] = '';
+							$scope.board[$scope.humanState.number] = '';
+							if ($scope.humanState.isHit)
+							{
+								$scope.board[$scope.humanState.hitPos] = '';
+							}
 
 							//AI rusza czerwonym
 							srvInfo.makeAIMove( function(data){  $scope.aiState = data; });
@@ -96,6 +100,7 @@ angular.module('myAppControllers', [])
 					$scope.first = -1;
 					$scope.second = -1;
 					$scope.state = 0;
+
 
 				}
 

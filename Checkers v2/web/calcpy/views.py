@@ -105,7 +105,6 @@ def registerUser(params):
 
 
 def makeMove(params):
-        
 	idSource = int(params['IDsource'])
 	idDest = int(params['IDdestination'])
         distance = abs(idSource - idDest)
@@ -122,7 +121,9 @@ def makeMove(params):
 		allowToMove = 1
 	return {
 		'number' : params['IDsource'],
-		'state' : allowToMove
+		'state' : allowToMove,
+		'isHit' : isLong,
+		'hitPos' : probableHitPos
 	}
 	
 

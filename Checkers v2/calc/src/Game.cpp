@@ -60,11 +60,11 @@ bool Game::executeMove(std::shared_ptr<Move> move, std::shared_ptr<Player> playe
     if(move->isHit()) {
         state_->changeBoard(move->getHitPos(), Element::BLACK_BLANK);
         if(move->isHumanMove() == true)
-            ai_->hitPiece(move->getHitPos());
+	    ai_->hitPiece(move->getHitPos());	
 	else
 	    human_->hitPiece(move->getHitPos());
     }
-    isHumanTurn_ = !isHumanTurn_;
+    //isHumanTurn_ = !isHumanTurn_;
     return true;
 }
 

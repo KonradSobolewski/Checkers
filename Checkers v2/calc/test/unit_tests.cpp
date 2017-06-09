@@ -139,6 +139,8 @@ BOOST_AUTO_TEST_CASE( possibleMovesTest )
 
 }
 
+
+
 BOOST_AUTO_TEST_CASE( checkMovesTest )
 {
     
