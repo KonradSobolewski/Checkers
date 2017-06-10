@@ -64,6 +64,7 @@ BOOST_PYTHON_MODULE( calc )
 	.def("getPieces", &Player::getPieces)
 	.def("getPieceById", &Player::getPieceById)
 	.def("getPieceByPosition", &Player::getPieceByPosition)
+	.def("getPiecesNumber", &Player::getPiecesNumber)
 	.def("hitPiece", &Player::hitPiece)
 		;
     boost::python::class_<AI,boost::python::bases<Player>,std::shared_ptr<AI>>("AI",boost::python::init<bool,Color>())
