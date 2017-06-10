@@ -41,16 +41,16 @@ def loginUser(params):
 		connection=psycopg2.connect(database=version.models.getDBName(), user=version.models.getDBUser(), password=version.models.getDBPassword(), host="127.0.0.1", port="5432")
 		state=connection.cursor()
 		#sprawdzamy czy baza danych istnieje jesli nie to tworzymy
-		state.execute("SELECT 1 FROM pg_tables WHERE schemaname='public' AND tablename='game_users'")
+		state.execute("SELECT 1 FROM pg_tables WHERE schemaname='public' AND tablename='game'")
 		rows=state.fetchall()
 		if len(rows)==0:
-			state.execute('''CREATE TABLE GAME_USERS
+			state.execute('''CREATE TABLE GAME
        			(ID INT PRIMARY KEY     NOT NULL,
        			LOGIN          	TEXT    NOT NULL,
        			PASSWORD_HASH   TEXT    NOT NULL);''')
 			connection.commit()
 		#porownanie loginu i hasla z wartosciami z bazy
-		state.execute("SELECT ID,LOGIN,PASSWORD_HASH FROM GAME_USERS")
+		state.execute("SELECT ID,LOGIN,PASSWORD_HASH FROM GAME")
 		rows=state.fetchall()
 		for row in rows:
 			m = hashlib.md5()
@@ -74,16 +74,16 @@ def registerUser(params):
 		connection=psycopg2.connect(database=version.models.getDBName(), user=version.models.getDBUser(), password=version.models.getDBPassword(), host="127.0.0.1", port="5432")
 		state=connection.cursor()
 		#sprawdzamy czy baza danych istnieje jesli nie to tworzymy
-		state.execute("SELECT 1 FROM pg_tables WHERE schemaname='public' AND tablename='game_users'")
+		state.execute("SELECT 1 FROM pg_tables WHERE schemaname='public' AND tablename='game'")
 		rows=state.fetchall()
 		if len(rows)==0:
-			state.execute('''CREATE TABLE GAME_USERS
+			state.execute('''CREATE TABLE GAME
 				(ID INT PRIMARY KEY    NOT NULL,
 				LOGIN          TEXT    NOT NULL,
 				PASSWORD_HASH  TEXT    NOT NULL
 			);''')
 			connection.commit()
-		state.execute("SELECT ID,LOGIN FROM GAME_USERS")
+		state.execute("SELECT ID,LOGIN FROM GAME")
 		rows=state.fetchall()
 		newId=1
 		for row in rows:
@@ -99,7 +99,7 @@ def registerUser(params):
 			m = hashlib.md5()
 			m.update(str(params["pass"]))
 			in_password = m.hexdigest()
-			state.execute(("INSERT INTO GAME_USERS (ID,LOGIN,PASSWORD_HASH,WINS,LOSES) VALUES ({},\'{}\',\'{}\',0,0)").format(newId,params["username"],in_password))
+			state.execute(("INSERT INTO GAME (ID,LOGIN,PASSWORD_HASH) VALUES ({},\'{}\',\'{}\')").format(newId,params["username"],in_password))
 			connection.commit()
 	finally:
 		connection.close()
