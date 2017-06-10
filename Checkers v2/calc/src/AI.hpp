@@ -5,6 +5,11 @@
 #include "Move.hpp"
 #include "RandElement.h"
 
+/*!
+	Klasa odpowiada ze sztuczną inteligencje 
+	@ color - decyzja jaki kolor pionków posiada AI
+	@ isActive  - czy obecnie jest ruch AI
+*/
 class AI: public Player
 {
 private:

@@ -2,7 +2,6 @@
 
 Player::Player(bool isActive, Color color){
     color_ = color;    
-    //createPieces();
     isActive_ = isActive;
 }
 
@@ -44,13 +43,16 @@ void Player::addPiece(std::shared_ptr<Piece> piece)
 int Player::getPiecesNumber()
 {
     return pieces_.size();
-} //todo
+} 
 
 pieces Player::getPieces()
 {
     return pieces_;
 }
 
+/*!
+	#tworzy początkowe położenie pionków na mapie
+*/
 void Player::createPieces() {
     if (getColor() == WHITE){
         pieces_.push_back(std::make_shared<Piece>(0, 1, Element::WHITE_PIECE, true, false));
@@ -83,6 +85,9 @@ void Player::createPieces() {
 
 }
 
+/*!
+	#metoda powoduje usunięcie pionka gracza
+*/
 void Player::hitPiece(int pos) {
 
     for(auto i = pieces_.begin(); i!=pieces_.end();i++) {
@@ -97,6 +102,10 @@ void Player::hitPiece(int pos) {
 
 }
 
+
+/*!
+	#sprawdza czy dany pionek ma możliwość zmiany na "damke"
+*/
 void Player::update()
 {
     for (auto &piece : pieces_)
@@ -118,6 +127,11 @@ void Player::update()
 }
 
 
+/*!
+	#szuka pionka o podanym ID
+	@ id - id pionka
+	@ return  - wyszukany pionek
+*/
 std::shared_ptr<Piece> Player::getPieceById(int id) 
 {
 
@@ -132,7 +146,11 @@ std::shared_ptr<Piece> Player::getPieceById(int id)
     
 
 }
-
+/*!
+	#szuka pionka o podanej pozycji
+	@ pos - pozycja pionka
+	@ return  - wyszukany pionek
+*/
 std::shared_ptr<Piece> Player::getPieceByPosition(int pos) 
 {
 

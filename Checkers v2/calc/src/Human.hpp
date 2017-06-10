@@ -3,6 +3,10 @@
 #define HUMAN_HPP
 #include "Player.hpp"
 
+
+/*!
+	#klasa potomna playera 
+*/
 class Human: public Player
 {
 private:

@@ -7,7 +7,9 @@
 #include "State.hpp"
 #include "Declarations.hpp"
 #include "Human.hpp"
-
+/*!
+	#główna klasa gry , przechowuje stan pola i graczy
+*/
 
 class Game
 {

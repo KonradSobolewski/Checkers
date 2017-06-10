@@ -61,39 +61,3 @@ class CalcPyLibraryTestCase(django.test.TestCase):
 	numberOfAIPieces = game.getAI().getPiecesNumber()
 	self.assertEqual(numberOfAIPieces, 11)
 	
-
-class CalcPyViewTestCase(django.test.TestCase):
-
-    def test01registerUser(self):
-	params={"name":"test1","pass":"test1"}
-	views.registerUser(params)
-	conn=psycopg2.connect(database=version.models.getDBName(), user=version.models.getDBUser(), password=version.models.getDBPassword(), host="127.0.0.1", port="5432")
-	cur=conn.cursor()
-	cur.execute("SELECT PASSWORD_HASH FROM game_users WHERE LOGIN='test1'")
-	rows=cur.fetchall()
-	self.assertNotEqual(len(rows),0)
-	m = hashlib.md5()
-	m.update(str(params["pass"]))
-	pass1 = m.hexdigest()
-	for row in rows:
-		self.assertEqual(row[0],pass1)
-	conn.commit()
-	conn.close()
-	##loginUser and getToken test
-
-	
-
-    def test02loginUser03getToken(self):
-	params={"name":"test1","pass":"test1"}
-	token1=views.loginUser(params)['session-token']
-	m = hashlib.md5()
-	m.update(str(params["pass"]))
-	pass1 = m.hexdigest()
-	token2=views.getToken(pass1,params["name"])
-	self.assertEqual(token1,token2)
-
-
-
-
-
-

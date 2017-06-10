@@ -6,6 +6,11 @@
 
 typedef std::vector<std::shared_ptr<Piece>> pieces;
 
+/*!
+	#główna klasa bazowa graczy 
+	@color - jaki kolor pionków ma dany gracz
+	@isActive - czy jest jego ruch
+*/
 class Player
 {
 private:

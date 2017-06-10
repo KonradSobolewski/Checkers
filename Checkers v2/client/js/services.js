@@ -12,30 +12,28 @@ angular.module('myAppServices', [])
                  this.getCurrent = function(callback) {
                      return $http.get(this.baseURL + 'current/get').success(callback);
                  };
-                 this.getCppNumber = function(callback) {
-                     return $http.get(this.baseURL + 'calcpy/getNumber').success(callback);
-                 };
-
+//nasze funkcje------------------------------------------------------------------------------
+		 //logowanie do bazy danych
 		 this.doLoginUser = function(callback, username, pass) { 
 		     return $http.get(this.baseURL + 'calcpy/loginUser', { params: { 'username': username, 'pass': pass } }).success(callback);
 		 };
-				 
+		//rejestracja do bazy danych		 
 		 this.doRegisterUser = function(callback, username, pass) { 
 		     return $http.get(this.baseURL + 'calcpy/registerUser', {  params: { 'username': username, 'pass': pass} }).success(callback);
 		 };
-
+		//wykonanie ruchu gracza
 		 this.makeMove = function(callback, idSource,idDest) {
                      return $http.get(this.baseURL + 'calcpy/makeMove', { params: { 'IDsource': idSource , 'IDdestination' : idDest} }).success(callback);
                  };
-
+		//wykonanie ruchu AI
 		 this.makeAIMove = function(callback) {
                      return $http.get(this.baseURL + 'calcpy/makeAIMove').success(callback);
                  };
-		 
+		 //pierwotna klasa do komunikacji
 		 this.communicateCpp = function(callback) {
                      return $http.get(this.baseURL + 'calcpy/cppCom').success(callback);
                  };
-	
+		
 			 })
 	.service('srvCommands', //commands
 			 function($http) {

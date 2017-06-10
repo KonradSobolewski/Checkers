@@ -3,7 +3,14 @@
 #define PIECE_HPP
 #include "Declarations.hpp"
 
-
+/*!
+	#zawiera informacje o każdym pionku z osobna na mapie
+	@ position - pozycja na mapie
+	@ id - id
+	@ color - kolor pionka
+	@ isHumanPiece - stan czy jest to pionek człowieka
+	@ isUpgraded  - czy jest to "damka"
+*/
 class Piece
 {
 private:

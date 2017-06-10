@@ -5,15 +5,18 @@
 
 
 angular.module('myAppControllers', [])
+		/*!
+			kontroler gry
+		*/
 		.controller('settingsController',['$scope', 'srvInfo', function($scope, srvInfo) {
-			$scope.numberFromCpp = 0;
-			$scope.state = 0;
-			$scope.first = -1;
-			$scope.second = -1;
-			$scope.humanState = 0;
-			$scope.aiState = 0;
+			$scope.numberFromCpp = 0; // wyświetla numer z cpp klasy Game
+			$scope.state = 0;  //liczba klikniętych pół
+ 			$scope.first = -1;  //przechowuje id pierwszego wybranego pola
+			$scope.second = -1;//przechowuje id drugiego wybranego pola
+			$scope.humanState = 0;  //przechowuje słownik z info na temat gracza
+			$scope.aiState = 0;  //przechowuje słownik z info na temat AI
 
-			$scope.board = {
+			$scope.board = { //początkowe ustawienie pionków
 				0 : './views/img/whiteCircle.png',
 				2 : './views/img/whiteCircle.png',
 				4 : './views/img/whiteCircle.png',
@@ -47,7 +50,7 @@ angular.module('myAppControllers', [])
 				61 : './views/img/redCircle.png',
 				63 : './views/img/redCircle.png'
 			};
-		
+			// test komunikacji
 			$scope.activeCpp = function(){
 				srvInfo.communicateCpp(
 					function(data){	
@@ -56,7 +59,7 @@ angular.module('myAppControllers', [])
 			}; 
 
 
-	
+			//wykonanie ruchu 
 			$scope.check = function(event) {
 				$scope.state++;
 				if ($scope.state == 1)
@@ -108,10 +111,13 @@ angular.module('myAppControllers', [])
 			}
 
 		 }])
+	/*!
+			kontroler  logowania
+	*/
 	.controller('loginController',['$scope', 'srvInfo','$location', '$rootScope','$window', function($scope, srvInfo,$location, $rootScope,$window) {
 		$scope.username = "";
 		$scope.password = "";
-
+		//logowanie do gry
 		$scope.login = function()
 		{
 			if($scope.username!="" && $scope.password!="")
@@ -135,7 +141,7 @@ angular.module('myAppControllers', [])
 			}
 			
 		};
-
+		//rejestracja do bazy danych
 		$scope.register = function()
 		{	
 			if($scope.username!="" && $scope.password!="")

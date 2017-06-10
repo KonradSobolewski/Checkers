@@ -13,28 +13,34 @@ import threading
 import datetime as dt
 import hashlib
 
-
+##globalny obiekt gry
 game = Game()
 
+
+##zwraca token dla danego gracza
+#@password - haslo danego gracza
+#@username - login danego gracza
 def getToken(password, username):
 	m = hashlib.md5()
-	m.update(str(password)+str(username)+"arydn2")
+	m.update(str(password)+str(username)+"asdnzn1")
 	return m.hexdigest()
 
 
-##Simple mutex class using a threading.lock() mechanism.
+##prosta klasa typu mutex
 class security:
 	lock=threading.Lock()
 
 
+## logowanie uzytkownika do bazy danych
+#@ params - slownik odebrany z js zawierajcy haslo i login
 def loginUser(params):
 	security.lock.acquire()
 	token=None
-	print("test")
+	print("test log")
 	try:
 		connection=psycopg2.connect(database=version.models.getDBName(), user=version.models.getDBUser(), password=version.models.getDBPassword(), host="127.0.0.1", port="5432")
 		state=connection.cursor()
-		#check if the database exist and if not create one
+		#sprawdzamy czy baza danych istnieje jesli nie to tworzymy
 		state.execute("SELECT 1 FROM pg_tables WHERE schemaname='public' AND tablename='game_users'")
 		rows=state.fetchall()
 		if len(rows)==0:
@@ -43,14 +49,14 @@ def loginUser(params):
        			LOGIN          	TEXT    NOT NULL,
        			PASSWORD_HASH   TEXT    NOT NULL);''')
 			connection.commit()
-		#compare username and password with the database
+		#porownanie loginu i hasla z wartosciami z bazy
 		state.execute("SELECT ID,LOGIN,PASSWORD_HASH FROM GAME_USERS")
 		rows=state.fetchall()
 		for row in rows:
 			m = hashlib.md5()
 			m.update(str(params["pass"]))
 			in_password = m.hexdigest()
-			#data correct
+			#poprawne dane
 			if row[1]==params["username"] and row[2]==in_password:
 				token = getToken(str(in_password), str(params["username"]))
 	finally:
@@ -58,6 +64,8 @@ def loginUser(params):
 		security.lock.release()
 		return { "session-token": token }
 
+## rejestracja uzytkownika do bazy danych
+#@ params - slownik odebrany z js zawierajcy haslo i login
 def registerUser(params):
 	valid = True
 	print("test reg")
@@ -65,7 +73,7 @@ def registerUser(params):
 	try:
 		connection=psycopg2.connect(database=version.models.getDBName(), user=version.models.getDBUser(), password=version.models.getDBPassword(), host="127.0.0.1", port="5432")
 		state=connection.cursor()
-		#check if the database exist and if not create one
+		#sprawdzamy czy baza danych istnieje jesli nie to tworzymy
 		state.execute("SELECT 1 FROM pg_tables WHERE schemaname='public' AND tablename='game_users'")
 		rows=state.fetchall()
 		if len(rows)==0:
@@ -79,15 +87,15 @@ def registerUser(params):
 		rows=state.fetchall()
 		newId=1
 		for row in rows:
-			# User is already in the database
+			# jesli user juz istnieje
 			if row[1]==params["username"]: 
 				valid = False
 				raise
-			#generate new id for a new player
+			#tworzymy nowe id dla gracza
 			elif row[0]>=newId:
 				newId=row[0]+1
 		if valid:
-			#put new player into database
+			#dolacz gracza do bazy danych 
 			m = hashlib.md5()
 			m.update(str(params["pass"]))
 			in_password = m.hexdigest()
@@ -96,14 +104,15 @@ def registerUser(params):
 	finally:
 		connection.close()
 		security.lock.release()
-		#if registration successful log in user
+		#jesli udalo sie zarejestrowac to zalogujemy sie
 		if valid:
 			return loginUser(params)
 		else:
 			return { "session-token": None}
 
 
-
+## metoda wykonuje ruch gracza
+#@ params - slownik zawierajacy pozycje z ktorej do ktorej sie chcemy ruszyc
 def makeMove(params):
 	idSource = int(params['IDsource'])
 	idDest = int(params['IDdestination'])
@@ -126,7 +135,7 @@ def makeMove(params):
 		'hitPos' : probableHitPos
 	}
 	
-
+##metoda wykonuje ruch AI
 def makeAIMove(params):
 	moveAI = game.getAI().makeMove(game.getState())
 	oldPos = str(moveAI.getPiece().getPosition())
@@ -141,7 +150,7 @@ def makeAIMove(params):
 			'hitPos' : hitPos
 	}
 
-
+## funkcja testujaca 
 def cppCom(params):
 	print('Cpp communication...')
 	print(game.getX())	

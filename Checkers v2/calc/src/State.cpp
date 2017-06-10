@@ -1,6 +1,10 @@
 
 #include "State.hpp"
 
+
+/*
+	#tworzy stan początkowy planszy gry
+*/
 State::State() {
 
     for (int i = 0; i < BOARD_SIZE; i++) {
@@ -32,6 +36,11 @@ State::State() {
     }
 }
 
+/*
+	#metoda dostarcza element kolekcji zawierający stany na planszy
+	@ position - pozycja pionka
+	@ return - element odszukany z kolekcji board 
+*/
 Element State::at(int position) {
     
     if(position < 0 || position > 63)
@@ -41,6 +50,12 @@ Element State::at(int position) {
 
 }
 
+
+/*
+	#metoda odszukuje wszystkie możliwe ruchy jakie pionek jest w danej chwili wykonac
+	@ piece - badany pionek
+	@return - wektor możliwych ruchów
+*/
 std::vector<int>&& State::getPossibleMoves(std::shared_ptr<Piece> piece){
 
 	std::vector<int> *possibleMoves = new std::vector<int>();
@@ -85,7 +100,9 @@ Board State::getBoard()
 {
 	return board;
 }
-
+/*
+	#zmienia stan mapy 
+*/
 void State::changeBoard(int position, Element element)
 {
 

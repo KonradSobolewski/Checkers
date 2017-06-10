@@ -27,6 +27,11 @@ bool Game::isHumanTurn() const
 
 }
 
+/*	
+	Metoda testuje poprawność ruchu
+	@move - przyjmuje obiekt ruchu jaki jest planowany do wykonania
+	@return - zwraca boola czy ruch jest prawidłowy
+*/
 bool Game::checkMove(std::shared_ptr<Move> move) const
 {
     std::vector<int> possibleMoves = state_->getPossibleMoves(move->getPiece());
@@ -38,7 +43,11 @@ bool Game::checkMove(std::shared_ptr<Move> move) const
 }
 
 
-
+/*	
+	Metoda sprawdza stan kolekcji graczy
+	@player - gracz którego kolekcje sprawdzamy
+	@return - zwaraca informacje o zwycięstwie
+*/
 bool Game::checkVictory(const Player& player) const
 {
 
@@ -48,7 +57,12 @@ bool Game::checkVictory(const Player& player) const
 
 
 }
-
+/*	
+	Metoda odpowiada za wykonanie przesłanego ruchu
+	@move - przyjmuje obiekt ruchu jaki jest planowany do wykonania
+	@player - gracz którego ruch jest wykonywany
+	@return - zwraca informacje o poprawnosci wykonania funkcji
+*/
 bool Game::executeMove(std::shared_ptr<Move> move, std::shared_ptr<Player> player)
 {    
     int newPosition = move->getPos();

@@ -18,9 +18,32 @@ int Piece::getPosition() const {
 	return position_; 
 }
 
-Element Piece::getColor() const { return color_; }
-bool Piece::getWhoseMove() const { return isHumanPiece_; }
-bool Piece::isUpgraded() const { return isUpgraded_; }
-void Piece::setPosition(int pos) { position_= pos; }
-void Piece::setWhosePiece( bool isHumanPiece ) { isHumanPiece_ = isHumanPiece; }
-void Piece::upgrade() { isUpgraded_ = true; }
+Element Piece::getColor() const
+{
+ 	return color_; 
+}
+
+bool Piece::getWhoseMove() const 
+{ 
+	return isHumanPiece_; 
+}
+
+bool Piece::isUpgraded() const 
+{ 
+	return isUpgraded_; 
+}
+
+void Piece::setPosition(int pos) 
+{ 
+	position_= pos; 
+}
+
+void Piece::setWhosePiece( bool isHumanPiece ) 
+{ 
+	isHumanPiece_ = isHumanPiece; 
+}
+
+void Piece::upgrade() 
+{ 
+	isUpgraded_ = true; 
+}

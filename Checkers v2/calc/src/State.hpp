@@ -3,6 +3,10 @@
 #define STATE_HPP
 #include "Declarations.hpp"
 #include "Piece.hpp"
+
+/*
+	#klasa przetrzymuje informacje o stanie całej mapy 
+*/
 class State
 {
 private:

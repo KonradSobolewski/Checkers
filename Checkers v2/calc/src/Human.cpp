@@ -12,6 +12,6 @@ Human::~Human()
 
 void Human::update()
 {
-     //std::cout << "Lol" << std::endl;
+
 }
 

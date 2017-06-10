@@ -1,7 +1,9 @@
 #include  <random>
 #include  <iterator>
 
-
+/*
+	#szablon odpowiedzialny za wybór losowego pionka z kolekcji
+*/
 template<typename Iter, typename RandomGenerator>
 Iter select_randomly(Iter start, Iter end, RandomGenerator& g) {
     std::uniform_int_distribution<> dis(0, std::distance(start, end) - 1);

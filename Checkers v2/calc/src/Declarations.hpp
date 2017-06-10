@@ -6,7 +6,9 @@
 #include <cstdlib>
 #include <vector>
 
-
+/*	
+	plik zawiera deklaracje stałych i typów wykorzystanych w grze 
+*/
 
 const static int BOARD_SIZE = 8;
 

@@ -15,6 +15,11 @@ void AI::update()
 
 }
 
+/*	
+	Metoda odpowiada za wykonanie losowego ruchu AI
+	@state  - przyjmuje obecny stan mapy
+	@return - zwraca wykonany ruch AI 
+*/
 std::shared_ptr<Move> AI::makeMove(std::shared_ptr<State> state)
 {
      std::vector<int> moves;
@@ -28,7 +33,7 @@ std::shared_ptr<Move> AI::makeMove(std::shared_ptr<State> state)
   		moves = state->getPossibleMoves(piece);
 	} 
      while( moves.size() == 0 ) 
-		;// checking for possible move 
+		;// sprawdzamy możliwe ruchy 
 	
      newPos = *select_randomly(moves.begin(), moves.end());
      if(abs(newPos - piece->getPosition()) >= 14)

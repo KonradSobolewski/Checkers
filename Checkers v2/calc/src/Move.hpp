@@ -3,6 +3,14 @@
 #define MOVE_HPP
 #include "Piece.hpp"
 
+/*!
+	# klasa tworzy obiekt ruchu jaki jest planowany do wykonania, umożliwia to testy o poprwaności ruchu
+	@ pos - pozycja pionka
+	@ humanMove - czyj ruch
+	@ piece - pionek który wykonuje ruch 
+	@ isHit - czy ruch powoduje bicie pionka
+	@ hitPosition - pozycja bitego pionka
+*/
 class Move
 {
 private:

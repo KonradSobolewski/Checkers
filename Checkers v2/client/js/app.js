@@ -4,10 +4,10 @@
 angular.module('myApp', ['ngRoute', 'pascalprecht.translate', 'myAppControllers', 'myAppServices'] )
     .config(['$routeProvider', '$translateProvider',
              function($routeProvider, $translateProvider) {
-                  $routeProvider.when('/main', {
+                  $routeProvider.when('/main', {  //widok logowania
                      templateUrl: 'views/main.html',
                  });
-                 $routeProvider.when('/play', {
+                 $routeProvider.when('/play', {  //widok gry
                      templateUrl: 'views/play.html',
                  });
                  $routeProvider.otherwise( {
